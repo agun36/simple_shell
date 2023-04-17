@@ -124,4 +124,4 @@
 # Simple shell 1.0 +
 
 - Handle the commands separator ;
-# code by Akindele Agun Odegua Osajele
+# code by Akindele Agun, Odegua Osajele
