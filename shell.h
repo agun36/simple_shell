@@ -48,9 +48,9 @@ typedef struct builtins
 char **make_env(char **environment);
 void free_env(char **environment);
 ssize_t _puts(char *string);
-char *_strdup(char *strtodup);
-int _strcmpr(char *strcmp1, char *strcmp2);
-char *_strcat(char *strc1, char *strc2);
+char *_strdup(char *strt_memo);
+int _strcmpr(char *strcmp_str, char *strcmp_str2);
+char *_strcat(char *strcat_str, char *strcat_str2);
 unsigned int _strlen(char *string);
 char **token(char *buf, char *delimiter);
 char **realloc(char **pointer, size_t *size);
