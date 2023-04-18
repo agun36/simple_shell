@@ -24,7 +24,7 @@
 typedef struct variables
 {
 	char **av; /* arguments from the command line */
-	char *buffer; /* command buffer */
+	char *buf; /* command buffer */
 	char **environment; /* environment variables */
 	size_t count; /* number of commands entered */
 	char **argv; /* arguments when shell was opened */
@@ -52,7 +52,7 @@ char *_strdup(char *strtodup);
 int _strcmpr(char *strcmp1, char *strcmp2);
 char *_strcat(char *strc1, char *strc2);
 unsigned int _strlen(char *string);
-char **token(char *buffer, char *delimiter);
+char **token(char *buf, char *delimiter);
 char **_realloc(char **pointer, size_t *size);
 char *new_strtok(char *string, const char *delimiter);
 
