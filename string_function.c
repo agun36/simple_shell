@@ -2,7 +2,7 @@
 
 /**
  * _puts - writes a string to the standard output stream
- * @str: the string to write
+ * @string: the string to write
  *
  * Return: the number of characters written, or -1 if an error occurs
  */
@@ -40,11 +40,10 @@ char *_strdup(char *strt_memo)
 	new_memo = malloc((lenght + 1) * sizeof(char));
 
 	if (new_memo == NULL)
-		return NULL;
+		return (NULL);
 
 	for (i = 0; i < lenght; i++)
 		new_memo[i] = strt_memo[i];
-	
 	new_memo[lenght] = '\0';
 	return (new_memo);
 }
@@ -58,12 +57,14 @@ char *_strdup(char *strt_memo)
  */
 int _strcmpr(char *strcmp_str, char *strcmp_str2)
 {
-	while (*strcmp_str != '\0' && *strcmp_str2 != '\0' && *strcmp_str == *strcmp_str2)
+	while (*strcmp_str != '\0' && *strcmp_str2 != '\0')
 	{
-		strcmp_str++;
-		strcmp_str2++;
+		while (*strcmp_str == *strcmp_str2)
+		{
+			strcmp_str++;
+			strcmp_str2++;
+		}
 	}
-	
 	return (*strcmp_str - *strcmp_str2);
 }
 
@@ -72,7 +73,7 @@ int _strcmpr(char *strcmp_str, char *strcmp_str2)
  * @strcat_str: the first string to concatenate
  * @strcat_str2: the second string to concatenate
  *
- * Return: a pointer to the newly-allocated string containing the concatenation,
+ * Return: a pointer to the newly-allocated str containing the concatenation,
  * or NULL if memory allocation fails
  */
 char *_strcat(char *strcat_str, char *strcat_str2)
@@ -101,11 +102,11 @@ char *_strcat(char *strcat_str, char *strcat_str2)
 
 /**
  * _strlen - returns the length of a string
- * @str: the string to measure
+ * @string: the string to measure
  *
  * Return: the length of the string
  */
-unsigned int _strlen(char *string) 
+unsigned int _strlen(char *string)
 {
 	unsigned int lenght = 0;
 

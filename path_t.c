@@ -28,13 +28,12 @@ int execute_cwd(vars_t *vars)
 				wait(&vars->stat);
 				if (WIFEXITED(vars->stat))
 					vars->stat = WEXITSTATUS(vars->stat);
-				
-				if (WIFSIGNALED(vars->stat)
-						if (WTERMSIG(vars->stat) == SIGINT))
-					vars->stat = 130;
-				
+				if (WIFSIGNALED(vars->stat))
+					if (WTERMSIG(vars->stat) == SIGINT)
+						vars->stat = 130;
 				return (0);
 			}
+
 			vars->status = 127;
 			return (1);
 		}

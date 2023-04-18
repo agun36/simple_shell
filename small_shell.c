@@ -15,7 +15,7 @@ sttic void sig_handler(int uuv)
 
 /**
  * initialize_vars - Initialize vars structure
- * @vars: Pointer to vars structure
+ * @variables: Pointer to vars structure
  * @argv: Argument vector
  * @environment: Environment variables
  */
@@ -40,7 +40,7 @@ void check_is_pipe(unsigned int *is_pipe)
 
 /**
  * process_input - Process input from user
- * @vars: Pointer to vars structure
+ * @variables: Pointer to vars structure
  */
 void process_input(vars_t *variables)
 {
@@ -50,11 +50,11 @@ void process_input(vars_t *variables)
 	variables->commands = tokenize(variables->buffer, ";");
 	for (i = 0; variables->commands && variables->commands[i] != NULL; i++)
 	{
-		variables->av = tokenize(vars->commands[i],"\n \t\r");
+		variables->av = tokenize(vars->commands[i], "\n \t\r");
 		if (variables->av && variables->av[0])
 			if (check_forbuiltins(variables) == NULL)
-				check_for_path(vars);
-		free(vars->av);
+				check_for_path(variables);
+		free(variables->av);
 	}
 }
 
