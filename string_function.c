@@ -24,75 +24,74 @@ ssize_t _puts(char *string)
 
 /**
  * _strdup - duplicates a string
- * @strtodup: the string to duplicate
+ * @strt_memo: the string to double
  *
  * Return: a pointer to the newly-allocated string, or NULL if memory
  * allocation fails
  */
-char *_strdup(char *strtodup)
+char *_strdup(char *strt_memo)
 {
-	char *new_str;
-	size_t i, len = 0;
+	char *new_memo;
+	size_t i, lenght = 0;
 
-	while (strtodup[len])
+	while (strt_memo[lenght])
 		len++;
 
-	new_str = malloc((len + 1) * sizeof(char));
+	new_memo = malloc((lenght + 1) * sizeof(char));
 
-	if (new_str == NULL)
+	if (new_memo == NULL)
 		return NULL;
 
-	for (i = 0; i < len; i++)
-		new_str[i] = strtodup[i];
+	for (i = 0; i < lenght; i++)
+		new_memo[i] = strt_memo[i];
 	
-	new_str[len] = '\0';
-	return (new_str);
+	new_memo[lenght] = '\0';
+	return (new_memo);
 }
 
 /**
  * _strcmpr - compares two strings
- * @strcmp1: the first string to compare
- * @strcmp2: the second string to compare
+ * @strcmp_str: the first string to compare
+ * @strcmp_str2: the second string to compare
  *
  * Return: an integer indicating the result of the comparison
  */
-int _strcmpr(char *strcmp1, char *strcmp2)
+int _strcmpr(char *strcmp_str, char *strcmp_str2)
 {
-	while (*strcmp1 != '\0' && *strcmp2 != '\0' && *strcmp1 == *strcmp2)
+	while (*strcmp_str != '\0' && *strcmp_str2 != '\0' && *strcmp_str == *strcmp_str2)
 	{
-		strcmp1++;
-		strcmp2++;
+		strcmp_str++;
+		strcmp_str2++;
 	}
 	
-	return (*strcmp1 - *strcmp2);
+	return (*strcmp_str - *strcmp_str2);
 }
 
 /**
  * _strcat - concatenates two strings
- * @strc1: the first string to concatenate
- * @strc2: the second string to concatenate
+ * @strcat_str: the first string to concatenate
+ * @strcat_str2: the second string to concatenate
  *
  * Return: a pointer to the newly-allocated string containing the concatenation,
  * or NULL if memory allocation fails
  */
-char *_strcat(char *strc1, char *strc2)
+char *_strcat(char *strcat_str, char *strcat_str2)
 {
-	char *new_str;
+	char *newcat_str = malloc((lenght1 + lenght2 + 1) * sizeof(char));
 	size_t i, j, lenght1 = 0, lenght2 = 0;
 
-	while (strc1[lenght1])
+	while (strcat_str[lenght1])
 		len1++;
-	while (strc2[lenght2])
+	while (strcat_str2[lenght2])
 		len2++;
 
-	new_str = malloc((lenght1 + lenght2 + 1) * sizeof(char));
 	if (new_str == NULL)
 		return (NULL);
 
 	for (i = 0; i < lenght1; i++)
-		new_str[i] = strc1[i];
+		new_str[i] = strcat_str[i];
 	for (j = 0; j < lenght2; j++, i++)
-		new_str[i] = strc2[j];
+		new_str[i] = strcat_str2[j];
 
 	new_str[lenght1 + lenght2] = '\0';
 
