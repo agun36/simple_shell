@@ -14,7 +14,7 @@
 /**
  * struct variables - holds various variables
  * @av: arguments from the command line
- * @buffer: command buffer
+ * @buf: command buffer
  * @environment: environment variables
  * @count: number of commands entered
  * @argv: arguments when shell was opened
@@ -53,7 +53,7 @@ int _strcmpr(char *strcmp1, char *strcmp2);
 char *_strcat(char *strc1, char *strc2);
 unsigned int _strlen(char *string);
 char **token(char *buf, char *delimiter);
-char **_realloc(char **pointer, size_t *size);
+char **realloc(char **pointer, size_t *size);
 char *new_strtok(char *string, const char *delimiter);
 
 void (*check_for_builtins(vars_t *variables))(vars_t *variables);
