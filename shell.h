@@ -15,10 +15,10 @@
  * struct variables - holds various variables
  * @av: arguments from the command line
  * @buf: command buffer
- * @environment: environment variables
+ * @envi: environment variables
  * @count: number of commands entered
  * @argv: arguments when shell was opened
- * @status: exit status
+ * @stat: exit status
  * @commands: 2D array of commands
  */
 typedef struct variables
