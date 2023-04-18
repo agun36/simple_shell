@@ -25,10 +25,10 @@ typedef struct variables
 {
 	char **av; /* arguments from the command line */
 	char *buf; /* command buffer */
-	char **environment; /* environment variables */
+	char **envi; /* environment variables */
 	size_t count; /* number of commands entered */
 	char **argv; /* arguments when shell was opened */
-	int status; /* exit status */
+	int stat; /* exit status */
 	char **commands; /* 2D array of commands */
 } vars_t;
 
@@ -75,7 +75,7 @@ int check_for_directory(char *string);
 
 void print_error(vars_t *variables, char *message);
 void _putstring(char *string);
-char *_uitoa(unsigned int count);
+char *_uitoa(unsigned int num);
 
 void process_input(vars_t *variables);
 void check_is_pipe(unsigned int *is_pipe);
