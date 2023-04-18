@@ -74,7 +74,7 @@ int execute_cwd(vars_t *variables);
 int check_for_directory(char *string);
 
 void print_error(vars_t *variables, char *message);
-void _puts2(char *string);
+void _putstring(char *string);
 char *_uitoa(unsigned int count);
 
 void process_input(vars_t *vars);
