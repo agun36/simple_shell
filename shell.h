@@ -62,7 +62,7 @@ void _env(vars_t *variables);
 void new_setenv(vars_t *variables);
 void new_unsetenv(vars_t *variables);
 
-void add_key(vars_t *vars);
+void add_key(vars_t *variables);
 char **find_key(char **environment, char *key);
 char *add_value(char *key, char *value);
 int _atoi(char *string);
@@ -77,9 +77,9 @@ void print_error(vars_t *variables, char *message);
 void _puts2(char *string);
 char *_uitoa(unsigned int count);
 
-void process_input(vars_t *vars);
+void process_input(vars_t *variables);
 void check_is_pipe(unsigned int *is_pipe);
-void initialize_vars(vars_t *vars, char **argv, char **environment);
+void initialize_vars(vars_t *variables, char **argv, char **environment);
 static void sig_handler(int uuv)
 
 
