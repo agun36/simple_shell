@@ -1,10 +1,12 @@
 #include "shell.h"
 
+/*global func*/
+static void sig_handler(int uuv);
+
 /**
  * sig_handler - Signal handler for SIGINT
  * @uuv: Unused variable
  */
-
 
 static void sig_handler(int uuv)
 {
@@ -90,6 +92,7 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 	}
 	if (is_pipe == 0)
 		_puts("\n");
+	
 	free_env(vars.env);
 	free(vars.buffer);
 	exit(vars.status);
