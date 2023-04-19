@@ -11,7 +11,7 @@ int execute_cwd(vars_t *vars)
 	pid_t sib_pid;
 	struct start buff;
 
-	if (start(vars->av[0], &buff) == 0)
+	if (stat(vars->av[0], &buff) == 0)
 	{
 		if (access(vars->av[0], X_OK) == 0)
 		{
@@ -68,7 +68,7 @@ int path_execute(char *command, vars_t *vars)
 			print_error(vars, '\0');
 		if (sib_pid == 0)
 		{
-			if (execve(command, vars->av, vars->envi == -1)
+			if (execve(command, vars->av, vars->envi == -1))
 					print_error(vars, '\0');
 					}
 					else
