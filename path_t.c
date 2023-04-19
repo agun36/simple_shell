@@ -9,7 +9,6 @@
 int execute_cwd(vars_t *vars)
 {
 	pid_t sib_pid;
-	struct start buff;
 
 	if (stat(vars->av[0], &buff) == 0)
 	{
@@ -157,7 +156,7 @@ void check_for_path(vars_t *vars)
 				new_exit(vars);
 			}
 		}
-		if (path == '\0' || path_t[i] == '\0')
+		if (path == '\0' || path_t[i] == NULL)
 		{
 			print_error(vars, ": is empty\n");
 			vars->stat = 127;
