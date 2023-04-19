@@ -40,7 +40,6 @@ typedef struct variables
 typedef struct builtins
 {
 	char *name; /* name of the builtin command */
-	/* function pointer to the corresponding builtin functn*/
 	void (*f)(vars_t *);
 } builtins_t;
 
@@ -62,23 +61,23 @@ void _env(vars_t *variables);
 void new_setenv(vars_t *variables);
 void new_unsetenv(vars_t *variables);
 
-void add_key(vars_t *variables);
+void add_key(vars_t *varial);
 char **find_key(char **environment, char *key);
 char *add_value(char *key, char *value);
 int _atoi(char *string);
 
-void check_for_path(char *variables);
-int path_execute(char *command, vars_t *variables);
+void check_for_path(char *varial);
+int path_execute(char *command, vars_t *varial);
 char *find_paths(char **environment);
-int execute_cwd(vars_t *variables);
+int execute_cwd(vars_t *varial);
 int check_for_directory(char *string);
 
-void print_error(vars_t *variables, char *message);
+void print_error(vars_t *varial, char *message);
 void _putstring(char *string);
 char *_uitoa(unsigned int num);
 
-void process_input(vars_t *variables);
+void process_input(vars_t *varial);
 void check_is_pipe(unsigned int *is_pipe);
-void initialize_vars(vars_t *variables, char **argv, char **environment);
+void initialize_vars(vars_t *varial, char **argv, char **environment);
 
 #endif /* _SHELL_H_ */
