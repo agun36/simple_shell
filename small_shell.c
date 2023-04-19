@@ -2,7 +2,7 @@
 
 /*global func*/
 static void sig_handler(int uuv);
-
+unsigned int flag_error;
 /**
  * sig_handler - Signal handler for SIGINT
  * @uuv: Unused variable
@@ -11,7 +11,7 @@ static void sig_handler(int uuv);
 static void sig_handler(int uuv)
 {
 	(void) uuv;
-	if (sig_flag == 0)
+	if (flag_error == 0)
 		_puts("\n$ ");
 	else
 		_puts("\n");
@@ -51,7 +51,7 @@ void process_input(vars_t *variables)
 	unsigned int i;
 
 	variables->count++;
-	variables->commands = tokenize(variables->buffer, ";");
+	variables->commands = tokenize(variables->buf, ";");
 	for (i = 0; variables->commands && variables->commands[i] != NULL; i++)
 	{
 		variables->av = tokenize(vars->commands[i], "\n \t\r");
@@ -72,20 +72,20 @@ void process_input(vars_t *variables)
  */
 int main(int argc __attribute__((unused)), char **argv, char **environment)
 {
-	size_t len_buffer = 0;
+	size_t lenght_buffer = 0;
 	unsigned int is_pipe = 0;
 	vars_t vars = {NULL, NULL, NULL, 0, NULL, 0, NULL};
 
 	initialize_vars(&vars, argv, environment);
 	check_is_pipe(&is_pipe);
-	sig_flag = 0;
-	while (getline(&(vars.buf), &len_buffer, stdin) != -1)
+	flag_error = 0;
+	while (getline(&(vars.buf), &lenght_buffer, stdin) != -1)
 	{
-		sig_flag = 1;
+		flag_error = 1;
 		process_input(&vars);
 		free(vars.buf);
 		free(vars.commands);
-		sig_flag = 0;
+		flag_error = 0;
 		if (is_pipe == 0)
 			_puts("$ ");
 		vars.buf = NULL;
