@@ -30,7 +30,7 @@ typedef struct variables
 	char **argv; /* arguments when shell was opened */
 	int stat; /* exit status */
 	char **commands; /* 2D array of commands */
-} char;
+} vars_t;
 
 /**
  * struct builtins - holds information about builtin functions
