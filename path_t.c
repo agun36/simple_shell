@@ -97,6 +97,28 @@ int path_execute(char *command, vars_t *vars)
 }
 
 /**
+ * find_path - finds the PATH variable in env
+ * @env: environment variable
+ *
+ * Return: pointer to the PATH variable in env
+ */
+char *find_path(char **env)
+{
+	char *path = "PATH=";
+	unsigned int i = 0, j;
+
+	while (env[i] != NULL)
+	{
+		for (j = 0; j < 5; j++)
+			if (path[j] != env[i][j])
+				break;
+		if (j == 5)
+			break;
+		i++;
+	}
+	return (env[i]);
+}
+/**
  * check_for_path - checks if the command is in the PATH
  * @vars: pointer to struct of variables
  *
@@ -144,30 +166,6 @@ void check_for_path(vars_t *vars)
 	}
 	if (reacty == 1)
 		new_exit(vars);
-}
-
-
-/**
- * find_path - finds the PATH variable in env
- * @env: environment variable
- *
- * Return: pointer to the PATH variable in env
- */
-char *find_path(char **env)
-{
-	char *path = "PATH=";
-	unsigned int i = 0, j;
-
-	while (env[i] != NULL)
-	{
-		for (j = 0; j < 5; j++)
-			if (path[j] != env[i][j])
-				break;
-		if (j == 5)
-			break;
-		i++;
-	}
-	return (env[i]);
 }
 
 /**
