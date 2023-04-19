@@ -117,10 +117,10 @@ void check_for_path(vars_t *vars)
 		if (path != '\0')
 		{
 			path_string = _strdup(path + 5);
-			path_t = tokenize(path_dup, ":");
+			path_t = token(path_dup, ":");
 			for (i = 0; path_t && path_t[i]; i++, free(check))
 			{
-				check = _strcat(path_tokens[i], vars->av[0]);
+				check = _strcat(path_t[i], vars->av[0]);
 				if (stat(check, &buf) == 0)
 				{
 					reacty = path_execute(check, vars);
@@ -129,7 +129,7 @@ void check_for_path(vars_t *vars)
 				}
 			}
 			free(path_dup);
-			if (!patth)
+			if (!path)
 			{
 				vars->stat = 127;
 				new_exit(vars);
@@ -137,7 +137,7 @@ void check_for_path(vars_t *vars)
 		}
 		if (path == '\0' || path_t[i] == '\0')
 		{
-			print_error(vars, ": empty\n");
+			print_error(vars, ": is empty\n");
 			vars->stat = 127;
 		}
 		free(path_t);
