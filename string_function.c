@@ -78,8 +78,8 @@ int _strcmpr(char *strcmp_str, char *strcmp_str2)
  */
 char *_strcat(char *strcat_str, char *strcat_str2)
 {
-	char *newcat_str = malloc((lenght1 + lenght2 + 1) * sizeof(char));
 	size_t i, j, lenght1 = 0, lenght2 = 0;
+	char *newcat_str = malloc((lenght1 + lenght2 + 1) * sizeof(char));
 
 	while (strcat_str[lenght1])
 		lenght1++;
