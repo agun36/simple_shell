@@ -46,18 +46,19 @@ void check_is_pipe(unsigned int *is_pipe)
  * process_input - Process input from user
  * @variables: Pointer to vars structure
  */
-void process_input(char *variables)
+void process_input(char *varial);
+void process_input(char *varial)
 {
 	unsigned int i;
 
 	variables->count++;
-	variables->commands = tokenize(variables->buf, ";");
+	variables->commands = token(variables->buf, ";");
 	for (i = 0; variables->commands && variables->commands[i] != NULL; i++)
 	{
 		variables->av = tokenize(variables->commands[i], "\n \t\r");
 		if (variables->av && variables->av[0])
-			if (check_for_builtins(variables) == NULL)
-				check_for_path(variables);
+			if (check_for_builtins(varial) == NULL)
+				check_for_path(varial);
 		free(variables->av);
 	}
 }
