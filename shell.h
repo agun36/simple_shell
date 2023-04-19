@@ -56,7 +56,7 @@ char **token(char *buf, char *delimiter);
 char **realloc_t(char **pointer, size_t *size);
 char *new_strtok(char *string, const char *delimiter);
 
-void (*check_for_builtins(vars_t *variables))(vars_t *variables);
+void (*check_for_builtins(vars_t *variables))(char *variables);
 void new_exit(vars_t *variables);
 void _env(vars_t *variables);
 void new_setenv(vars_t *variables);
@@ -67,7 +67,7 @@ char **find_key(char **environment, char *key);
 char *add_value(char *key, char *value);
 int _atoi(char *string);
 
-void check_for_path(vars_t *variables);
+void check_for_path(char *variables);
 int path_execute(char *command, vars_t *variables);
 char *find_paths(char **environment);
 int execute_cwd(vars_t *variables);
