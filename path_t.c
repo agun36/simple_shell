@@ -67,7 +67,7 @@ int path_execute(char *command, vars_t *vars)
 			print_error(vars, '\0');
 		if (sib_pid == 0)
 		{
-			if (execve(command, vars->av, vars->envi == -1))
+			if (execve(command, vars->av, vars->envi) == -1)
 					print_error(vars, '\0');
 					}
 					else
