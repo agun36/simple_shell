@@ -54,7 +54,7 @@ void process_input(vars_t *variables)
 	variables->commands = tokenize(variables->buf, ";");
 	for (i = 0; variables->commands && variables->commands[i] != NULL; i++)
 	{
-		variables->av = tokenize(vars_t->commands[i], "\n \t\r");
+		variables->av = tokenize(variables->commands[i], "\n \t\r");
 		if (variables->av && variables->av[0])
 			if (check_for_builtins(variables) == NULL)
 				check_for_path(variables);
