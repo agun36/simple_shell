@@ -80,6 +80,6 @@ char *_uitoa(unsigned int num);
 void process_input(vars_t *variables);
 void check_is_pipe(unsigned int *is_pipe);
 void initialize_vars(vars_t *variables, char **argv, char **environment);
-
+static void sig_handler(int uuv);
 
 #endif /* _SHELL_H_ */
