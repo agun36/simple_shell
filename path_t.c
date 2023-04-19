@@ -135,7 +135,7 @@ void check_for_path(vars_t *vars)
 	else
 	{
 		path = find_path(vars->envi);
-		if (path != '\0')
+		if (path != NULL)
 		{
 			path_string = _strdup(path + 5);
 			path_t = token(path_dup, ":");
