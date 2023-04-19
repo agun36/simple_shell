@@ -52,14 +52,14 @@ void process_input(vars_t *varial)
 	unsigned int i;
 
 	varial->count++;
-	varial->commands = token(variables->buf, ";");
-	for (i = 0; vars->commands && variables->commands[i] != NULL; i++)
+	varial->commands = token(varial->buf, ";");
+	for (i = 0; varial->commands && varial->commands[i] != NULL; i++)
 	{
-		variables->av = tokenize(variables->commands[i], "\n \t\r");
-		if (variables->av && variables->av[0])
+		varial->av = tokenize(varial->commands[i], "\n \t\r");
+		if (varial->av && varial->av[0])
 			if (check_for_builtins(varial) == NULL)
 				check_for_path(varial);
-		free(variables->av);
+		free(varial->av);
 	}
 }
 
