@@ -26,7 +26,7 @@ static void sig_handler(int uuv)
 void initialize_vars(vars_t *variables, char **argv, char **environment)
 {
 	variables->argv = argv;
-	variables->environment = make_env(environment);
+	variables->envi = make_env(environment);
 	signal(SIGINT, sig_handler);
 }
 
@@ -54,9 +54,9 @@ void process_input(vars_t *variables)
 	variables->commands = tokenize(variables->buf, ";");
 	for (i = 0; variables->commands && variables->commands[i] != NULL; i++)
 	{
-		variables->av = tokenize(vars->commands[i], "\n \t\r");
+		variables->av = tokenize(vars_t->commands[i], "\n \t\r");
 		if (variables->av && variables->av[0])
-			if (check_forbuiltins(variables) == NULL)
+			if (check_for_builtins(variables) == NULL)
 				check_for_path(variables);
 		free(variables->av);
 	}
