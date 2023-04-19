@@ -4,7 +4,9 @@
  * sig_handler - Signal handler for SIGINT
  * @uuv: Unused variable
  */
-sttic void sig_handler(int uuv)
+
+
+static void sig_handler(int uuv)
 {
 	(void) uuv;
 	if (sig_flag == 0)
