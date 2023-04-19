@@ -55,10 +55,10 @@ void process_input(vars_t *varial)
 	varial->commands = token(varial->buf, ";");
 	for (i = 0; varial->commands && varial->commands[i] != NULL; i++)
 	{
-		varial->av = tokenize(varial->commands[i], "\n \t\r");
+		varial->av = token(varial->commands[i], "\n \t\r");
 		if (varial->av && varial->av[0])
-			if (check_for_builtins(varial) == NULL)
-				check_for_path(varial);
+			if (check_for_builtins(variables) == NULL)
+				check_for_path(variables);
 		free(varial->av);
 	}
 }
