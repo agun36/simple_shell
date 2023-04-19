@@ -35,7 +35,7 @@ char *_strdup(char *strt_memo)
 	size_t i, lenght = 0;
 
 	while (strt_memo[lenght])
-		len++;
+		lenght++;
 
 	new_memo = malloc((lenght + 1) * sizeof(char));
 
