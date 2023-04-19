@@ -66,7 +66,7 @@ char **find_key(char **environment, char *key);
 char *add_value(char *key, char *value);
 int _atoi(char *string);
 
-void check_for_path(char *varial);
+void check_for_path(vars_t *varial);
 int path_execute(char *command, vars_t *varial);
 char *find_paths(char **environment);
 int execute_cwd(vars_t *varial);
