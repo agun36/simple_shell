@@ -79,7 +79,7 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 	initialize_vars(&vars, argv, environment);
 	check_is_pipe(&is_pipe);
 	sig_flag = 0;
-	while (getline(&(vars.buffer), &len_buffer, stdin) != -1)
+	while (getline(&(vars.buf), &len_buffer, stdin) != -1)
 	{
 		sig_flag = 1;
 		process_input(&vars);
@@ -88,7 +88,7 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 		sig_flag = 0;
 		if (is_pipe == 0)
 			_puts("$ ");
-		vars.buffer = NULL;
+		vars.buf = NULL;
 	}
 	if (is_pipe == 0)
 		_puts("\n");
