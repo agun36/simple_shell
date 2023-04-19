@@ -9,9 +9,9 @@
 int execute_cwd(vars_t *vars)
 {
 	pid_t sib_pid;
-	struct star buff;
+	struct start buff;
 
-	if (star(vars->av[0], &buff) == 0)
+	if (start(vars->av[0], &buff) == 0)
 	{
 		if (access(vars->av[0], X_OK) == 0)
 		{
