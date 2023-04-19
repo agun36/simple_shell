@@ -125,7 +125,7 @@ char *find_path(char **env)
  */
 void check_for_path(vars_t *vars)
 {
-	char *path, *path_string = '\0', *check = '\0';
+	char *path, *paths_double_dot = NULL, *check = NULL;
 	unsigned int i = 0, reacty = 0;
 	char **path_t;
 	struct stat buf;
@@ -137,8 +137,8 @@ void check_for_path(vars_t *vars)
 		path = find_path(vars->envi);
 		if (path != NULL)
 		{
-			path_string = _strdup(path + 5);
-			path_t = token(path_t, ":");
+			paths_double_dot = _strdup(path + 5);
+			path_t = token(paths_double_dot, ":");
 			for (i = 0; path_t && path_t[i]; i++, free(check))
 			{
 				check = _strcat(path_t[i], vars->av[0]);
@@ -149,7 +149,7 @@ void check_for_path(vars_t *vars)
 					break;
 				}
 			}
-			free(path_t);
+			free(paths_double_dot);
 			if (!path)
 			{
 				vars->stat = 127;
@@ -161,7 +161,7 @@ void check_for_path(vars_t *vars)
 			print_error(vars, ": is empty\n");
 			vars->stat = 127;
 		}
-		free(path_t);
+		free(paths_double_dot);
 	}
 	if (reacty == 1)
 		new_exit(vars);
