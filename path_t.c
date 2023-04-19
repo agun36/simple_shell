@@ -138,7 +138,7 @@ void check_for_path(vars_t *vars)
 		if (path != NULL)
 		{
 			path_string = _strdup(path + 5);
-			path_t = token(path_dup, ":");
+			path_t = token(path_t, ":");
 			for (i = 0; path_t && path_t[i]; i++, free(check))
 			{
 				check = _strcat(path_t[i], vars->av[0]);
@@ -149,14 +149,14 @@ void check_for_path(vars_t *vars)
 					break;
 				}
 			}
-			free(path_dup);
+			free(path_t);
 			if (!path)
 			{
 				vars->stat = 127;
 				new_exit(vars);
 			}
 		}
-		if (path == '\0' || path_t[i] == NULL)
+		if (path == NULL || path_t[i] == NULL)
 		{
 			print_error(vars, ": is empty\n");
 			vars->stat = 127;
