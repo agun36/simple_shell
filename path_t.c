@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * execute_cwd - executes the command in the current working directory
- * @vars: pointer to struct of variables
+ * execute_cwd - current working directory
+ * @vars: points to struct of variables
  *
  * Return: 0 on success, 1 on failure
  */
@@ -34,18 +34,18 @@ int execute_cwd(vars_t *vars)
 				return (0);
 			}
 
-			vars->status = 127;
+			vars->stat = 127;
 			return (1);
 		}
 		else
 		{
-			print_error(vars, ": Permission denied\n");
-			vars->status = 126;
+			print_error(vars, ": trail again later\n");
+			vars->stat = 126;
 		}
 		return (0);
 	}
-	print_error(vars, ": not found\n");
-	vars->status = 127;
+	print_error(vars, ": can't be found\n");
+	vars->stat = 127;
 	return (0);
 }
 
