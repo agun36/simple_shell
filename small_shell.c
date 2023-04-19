@@ -57,7 +57,7 @@ void process_input(vars_t *varial)
 	{
 		varial->av = token(varial->commands[i], "\n \t\r");
 		if (varial->av && varial->av[0])
-			if (check_for_builtins(variables) == NULL)
+			if (check_for_builtins(varial) == NULL)
 				check_for_path(variables);
 		free(varial->av);
 	}
