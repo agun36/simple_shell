@@ -83,7 +83,7 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 	{
 		sig_flag = 1;
 		process_input(&vars);
-		free(vars.buffer);
+		free(vars.buf);
 		free(vars.commands);
 		sig_flag = 0;
 		if (is_pipe == 0)
