@@ -51,8 +51,8 @@ void process_input(vars_t *varial)
 {
 	unsigned int i;
 
-	vars->count++;
-	vars->commands = token(variables->buf, ";");
+	varial->count++;
+	varial->commands = token(variables->buf, ";");
 	for (i = 0; vars->commands && variables->commands[i] != NULL; i++)
 	{
 		variables->av = tokenize(variables->commands[i], "\n \t\r");
