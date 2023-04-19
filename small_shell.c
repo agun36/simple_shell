@@ -46,8 +46,8 @@ void check_is_pipe(unsigned int *is_pipe)
  * process_input - Process input from user
  * @variables: Pointer to vars structure
  */
-void process_input(char *varial);
-void process_input(char *varial)
+void process_input(vars_t *varial);
+void process_input(vars_t *varial)
 {
 	unsigned int i;
 
