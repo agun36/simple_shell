@@ -12,7 +12,7 @@ unsigned int check_match(char z, const char *string)
 	unsigned int a = 0;
 
 	/* interating through the string to compare the string character*/
-	while (string[a] != '\0';)
+	while (string[a] != '\0')
 	{
 		if (z != string[a])
 			return (0);
@@ -42,7 +42,7 @@ char *new_strtok(char *string, const char *delimiter)
 
 	a = 0;
 
-	while (curr_token[a] != '\0' && check_match(curr_token[a], delimeter) != 1)
+	while (curr_token[a] != '\0' && check_match(curr_token[a], delimiter) != 1)
 	{
 		a++;
 	}

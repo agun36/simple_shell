@@ -7,19 +7,19 @@
  * Return: Nothing
  */
 
-print_error(vars_t *vars, char *message)
+print_error(vars_t *variables, char *message)
 {
 	char *num;
 
-	_putstring(vars->argv[0]);
-	_putstings("- ");
+	_putstring(variables->argv[0]);
+	_putstring("- ");
 
-	num = _uitoa(vars->num);
+	num = _uitoa(variables->num);
 	_putstring(num);
 	free(num);
 	_putstring("- ");
 
-	_putstring(vars->av[0]);
+	_putstring(variables->av[0]);
 	if (message != NULL)
 		_putstring(message);
 
@@ -39,7 +39,7 @@ void _putstring(char *string)
 	ssize_t bab;
 
 	bab = _strlen(string);
-	lenght = write(STDEER_FILENO, string, bab);
+	lenght = write(STDERR_FILENO, string, bab);
 
 	while (bab != lenght)
 	{
@@ -59,7 +59,7 @@ char *_uitoa(unsigned int num)
 	char *conv_string;
 	unsigned int fid, n;
 
-	fid = num
+	fid = num;
 	for (n = 0; fid != 0; n++)
 		fid = fid / 10;
 
@@ -69,7 +69,7 @@ char *_uitoa(unsigned int num)
 		perror("this is a serious error");
 		exit(98);
 	}
-	else if conv_string[n] = "\0"
+	else if (conv_string[n] = "\0")
 	for (--n; num; --n)
 	{
 		conv_string[n] = (num % 10) + '0';
