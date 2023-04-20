@@ -52,13 +52,12 @@ int _strcmpr(char *strcmp_str, char *strcmp_str2);
 char *_strcat(char *strcat_str, char *strcat_str2);
 unsigned int _strlen(char *string);
 char **token(char *buf, char *delimiter);
-<<<<<<< HEAD
+
 char **_realloc(char **pointer, size_t *size);
 char *strtok(char *string, const char *delimiter);
-=======
 char **realloc_t(char **pointer, size_t *size);
 char *new_strtok(char *string, const char *delimiter);
->>>>>>> 7dc51a7ba871adf8eaef7264d8dd0e745ddd21cb
+
 
 void (*check_for_builtins(vars_t *variables))(char *variables);
 void new_exit(vars_t *variables);
