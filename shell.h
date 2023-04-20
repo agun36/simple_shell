@@ -54,7 +54,7 @@ unsigned int _strlen(char *string);
 char **token(char *buf, char *delimiter);
 
 char **_realloc(char **pointer, size_t *size);
-char *strtok(char *string, const char *delimiter);
+char *strtok_t(char *string, const char *delimiter);
 char **realloc_t(char **pointer, size_t *size);
 char *new_strtok(char *string, const char *delimiter);
 
