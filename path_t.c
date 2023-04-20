@@ -1,17 +1,16 @@
 #include "shell.h"
 
 /**
- * execute_cwd - executes the command in the current working directory
- * @vars: pointer to struct of variables
+ * execute_cwd - current working directory
+ * @vars: points to struct of variables
  *
  * Return: 0 on success, 1 on failure
  */
 int execute_cwd(vars_t *vars)
 {
 	pid_t sib_pid;
-	struct star buf;
 
-	if (star(vars->av[0], &buf) == 0)
+	if (stat(vars->av[0], &buff) == 0)
 	{
 		if (access(vars->av[0], X_OK) == 0)
 		{
@@ -20,7 +19,7 @@ int execute_cwd(vars_t *vars)
 				print_error(vars, NULL);
 			if (sib_pid == 0)
 			{
-				if (execve(vars->av[0], vars->av, vars->env) == -1)
+				if (execve(vars->av[0], vars->av, vars->envi) == -1)
 					print_error(vars, NULL);
 			}
 			else
@@ -34,18 +33,18 @@ int execute_cwd(vars_t *vars)
 				return (0);
 			}
 
-			vars->status = 127;
+			vars->stat = 127;
 			return (1);
 		}
 		else
 		{
-			print_error(vars, ": Permission denied\n");
-			vars->status = 126;
+			print_error(vars, ": trail again later\n");
+			vars->stat = 126;
 		}
 		return (0);
 	}
-	print_error(vars, ": not found\n");
-	vars->status = 127;
+	print_error(vars, ": can't be found\n");
+	vars->stat = 127;
 	return (0);
 }
 
@@ -68,7 +67,7 @@ int path_execute(char *command, vars_t *vars)
 			print_error(vars, '\0');
 		if (sib_pid == 0)
 		{
-			if (execve(command, vars->av, vars->envi == -1)
+			if (execve(command, vars->av, vars->envi) == -1)
 					print_error(vars, '\0');
 					}
 					else
@@ -97,57 +96,6 @@ int path_execute(char *command, vars_t *vars)
 }
 
 /**
- * check_for_path - checks if the command is in the PATH
- * @vars: pointer to struct of variables
- *
- * Return: void
- */
-void check_for_path(vars_t *vars)
-{
-	char *path, *path_string = '\0', *check = '\0';
-	unsigned int i = 0, reacty = 0;
-	char **path_t;
-	struct stat buf;
-
-	if (check_for_directory(vars->av[0]))
-		reacty = execute_cwd(vars);
-	else
-	{
-		path = find_path(vars->envi);
-		if (path != '\0')
-		{
-			path_string = _strdup(path + 5);
-			path_t = tokenize(path_dup, ":");
-			for (i = 0; path_t && path_t[i]; i++, free(check))
-			{
-				check = _strcat(path_tokens[i], vars->av[0]);
-				if (stat(check, &buf) == 0)
-				{
-					reacty = path_execute(check, vars);
-					free(check);
-					break;
-				}
-			}
-			free(path_dup);
-			if (!patth)
-			{
-				vars->stat = 127;
-				new_exit(vars);
-			}
-		}
-		if (path == '\0' || path_t[i] == '\0')
-		{
-			print_error(vars, ": empty\n");
-			vars->stat = 127;
-		}
-		free(path_t);
-	}
-	if (reacty == 1)
-		new_exit(vars);
-}
-
-
-/**
  * find_path - finds the PATH variable in env
  * @env: environment variable
  *
@@ -168,6 +116,55 @@ char *find_path(char **env)
 		i++;
 	}
 	return (env[i]);
+}
+/**
+ * check_for_path - checks if the command is in the PATH
+ * @vars: pointer to struct of variables
+ *
+ * Return: void
+ */
+void check_for_path(vars_t *vars)
+{
+	char *path, *paths_double_dot = NULL, *check = NULL;
+	unsigned int i = 0, reacty = 0;
+	char **path_t;
+	struct stat buf;
+
+	if (check_for_directory(vars->av[0]))
+		reacty = execute_cwd(vars);
+	else
+	{
+		path = find_path(vars->envi);
+		if (path != NULL)
+		{
+			paths_double_dot = _strdup(path + 5);
+			path_t = token(paths_double_dot, ":");
+			for (i = 0; path_t && path_t[i]; i++, free(check))
+			{
+				check = _strcat(path_t[i], vars->av[0]);
+				if (stat(check, &buf) == 0)
+				{
+					reacty = path_execute(check, vars);
+					free(check);
+					break;
+				}
+			}
+			free(paths_double_dot);
+			if (!path)
+			{
+				vars->stat = 127;
+				new_exit(vars);
+			}
+		}
+		if (path == NULL || path_t[i] == NULL)
+		{
+			print_error(vars, ": is empty\n");
+			vars->stat = 127;
+		}
+		free(paths_double_dot);
+	}
+	if (reacty == 1)
+		new_exit(vars);
 }
 
 /**

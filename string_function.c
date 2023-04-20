@@ -35,7 +35,7 @@ char *_strdup(char *strt_memo)
 	size_t i, lenght = 0;
 
 	while (strt_memo[lenght])
-		len++;
+		lenght++;
 
 	new_memo = malloc((lenght + 1) * sizeof(char));
 
@@ -78,25 +78,25 @@ int _strcmpr(char *strcmp_str, char *strcmp_str2)
  */
 char *_strcat(char *strcat_str, char *strcat_str2)
 {
-	char *newcat_str = malloc((lenght1 + lenght2 + 1) * sizeof(char));
 	size_t i, j, lenght1 = 0, lenght2 = 0;
+	char *newcat_str = malloc((lenght1 + lenght2 + 1) * sizeof(char));
 
 	while (strcat_str[lenght1])
-		len1++;
+		lenght1++;
 	while (strcat_str2[lenght2])
-		len2++;
+		lenght2++;
 
-	if (new_str == NULL)
+	if (newcat_str == NULL)
 		return (NULL);
 
 	for (i = 0; i < lenght1; i++)
-		new_str[i] = strcat_str[i];
+		newcat_str[i] = strcat_str[i];
 	for (j = 0; j < lenght2; j++, i++)
-		new_str[i] = strcat_str2[j];
+		newcat_str[i] = strcat_str2[j];
 
-	new_str[lenght1 + lenght2] = '\0';
+	newcat_str[lenght1 + lenght2] = '\0';
 
-	return (new_str);
+	return (newcat_str);
 }
 
 

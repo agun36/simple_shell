@@ -40,7 +40,6 @@ typedef struct variables
 typedef struct builtins
 {
 	char *name; /* name of the builtin command */
-	/* function pointer to the corresponding builtin functn*/
 	void (*f)(vars_t *);
 } builtins_t;
 
@@ -53,34 +52,44 @@ int _strcmpr(char *strcmp_str, char *strcmp_str2);
 char *_strcat(char *strcat_str, char *strcat_str2);
 unsigned int _strlen(char *string);
 char **token(char *buf, char *delimiter);
+<<<<<<< HEAD
 char **_realloc(char **pointer, size_t *size);
 char *strtok(char *string, const char *delimiter);
+=======
+char **realloc_t(char **pointer, size_t *size);
+char *new_strtok(char *string, const char *delimiter);
+>>>>>>> 7dc51a7ba871adf8eaef7264d8dd0e745ddd21cb
 
-void (*check_for_builtins(vars_t *variables))(vars_t *variables);
+void (*check_for_builtins(vars_t *variables))(char *variables);
 void new_exit(vars_t *variables);
 void _env(vars_t *variables);
 void new_setenv(vars_t *variables);
 void new_unsetenv(vars_t *variables);
 
+<<<<<<< HEAD
 void add_key(vars_t *variables);
 char **find_key(char **environment, char *name;)
 char *add_value(char *name, char *value);
 int  atoi(char *string);
+=======
+void add_key(vars_t *varial);
+char **find_key(char **environment, char *key);
+char *add_value(char *key, char *value);
+int _atoi(char *string);
+>>>>>>> 7dc51a7ba871adf8eaef7264d8dd0e745ddd21cb
 
-void check_for_path(vars_t *variables);
-int path_execute(char *command, vars_t *variables);
+void check_for_path(vars_t *varial);
+int path_execute(char *command, vars_t *varial);
 char *find_paths(char **environment);
-int execute_cwd(vars_t *variables);
+int execute_cwd(vars_t *varial);
 int check_for_directory(char *string);
 
-void print_error(vars_t *variables, char *message);
+void print_error(vars_t *varial, char *message);
 void _putstring(char *string);
 char *_uitoa(unsigned int num);
 
-void process_input(vars_t *variables);
+void process_input(vars_t *varial);
 void check_is_pipe(unsigned int *is_pipe);
-void initialize_vars(vars_t *variables, char **argv, char **environment);
-static void sig_handler(int uuv)
-
+void initialize_vars(vars_t *varial, char **argv, char **environment);
 
 #endif /* _SHELL_H_ */
