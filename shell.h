@@ -65,17 +65,12 @@ void _env(vars_t *variables);
 void new_setenv(vars_t *variables);
 void new_unsetenv(vars_t *variables);
 
-<<<<<<< HEAD
-void add_key(vars_t *variables);
-char **find_key(char **environment, char *name;)
-char *add_value(char *name, char *value);
-int  atoi(char *string);
-=======
+
 void add_key(vars_t *varial);
 char **find_key(char **environment, char *key);
 char *add_value(char *key, char *value);
 int _atoi(char *string);
->>>>>>> 7dc51a7ba871adf8eaef7264d8dd0e745ddd21cb
+
 
 void check_for_path(vars_t *varial);
 int path_execute(char *command, vars_t *varial);
