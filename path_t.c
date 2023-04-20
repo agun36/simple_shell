@@ -9,6 +9,7 @@
 int execute_cwd(vars_t *vars)
 {
 	pid_t sib_pid;
+	struct stat buff;
 
 	if (stat(vars->av[0], &buff) == 0)
 	{
