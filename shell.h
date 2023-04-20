@@ -53,8 +53,8 @@ int _strcmpr(char *strcmp_str, char *strcmp_str2);
 char *_strcat(char *strcat_str, char *strcat_str2);
 unsigned int _strlen(char *string);
 char **token(char *buf, char *delimiter);
-char **realloc(char **pointer, size_t *size);
-char *new_strtok(char *string, const char *delimiter);
+char **_realloc(char **pointer, size_t *size);
+char *strtok(char *string, const char *delimiter);
 
 void (*check_for_builtins(vars_t *variables))(vars_t *variables);
 void new_exit(vars_t *variables);
@@ -63,9 +63,9 @@ void new_setenv(vars_t *variables);
 void new_unsetenv(vars_t *variables);
 
 void add_key(vars_t *variables);
-char **find_key(char **environment, char *key);
-char *add_value(char *key, char *value);
-int _atoi(char *string);
+char **find_key(char **environment, char *name;)
+char *add_value(char *name, char *value);
+int  atoi(char *string);
 
 void check_for_path(vars_t *variables);
 int path_execute(char *command, vars_t *variables);
