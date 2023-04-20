@@ -90,7 +90,7 @@ int path_execute(char *command, vars_t *vars)
 					}
 
 	print_error(vars, ": Permission not granted\n");
-	variables->stat = 126;
+	vars->stat = 126;
 
 	return (0);
 }
