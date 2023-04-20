@@ -1,76 +1,65 @@
 #include "shell.h"
 
 /**
- * character_match - checks if the string and the character matches
+ * check_match - checks if the string and the character matches
  * @z: the character to check
  * @string: the string to be check
  * Return: 0 if it doesnt match, else 1.
  */
 
-unsigned int character_match(char z, const char *string)
+unsigned int check_match(char z, const char *string)
 {
-	unsigned int a;
+	unsigned int a = 0;
 
 	/* interating through the string to compare the string character*/
-	while (a = 0; string[a] != '\0'; a++)
+	while (string[a] != '\0';)
 	{
-		if (c != string[a])
+		if (z != string[a])
 			return (0);
+			a++;
 	}
 	return (1);
 }
 /**
- * strtok- the new strtok
+ * new_strtok- the new strtok
  * @string: the string we want to tokenize
  * @delimiter: delimiter
  * Return: NULL
  */
 
-char *strtok(char *string, const char *dekim)
+char *new_strtok(char *string, const char *delimiter)
 {
-	unsignedt int a;
+	unsigned int a;
 	static char *first_token;
-	static char *current_token;
+	static char *curr_token;
 
 	if (string)
-		current_token = string;
-	first_token = current_token;
+		curr_token = string;
+	first_token = curr_token;
 
 	if (!first_token)
 		return (NULL);
 
-	while (a = 0; current_token[a] != '\0'; a++)
+	a = 0;
+
+	while (curr_token[a] != '\0' && check_match(curr_token[a], delimeter) != 1)
 	{
-		if (character_match(current_token[a], delimiter) == 0)
-				break;
+		a++;
 	}
-	if (current_token[a] == '#')
+	if (curr_token[a] == '#')
 	{
-		current_token = NULL;
+		curr_token = NULL;
 		return (NULL);
 	}
-	if (current_token[a] == '\0')
-	{
-		current_token = NULL;
-		return (NULL);
-	}
+	if (curr_token[a] == '\0')
+		curr_token = NULL;
 
-	first_token = current_token + 1;
-	current_token = first_token;
-
-	while (a = 0; current_token[a] != '\0'; a++)
+	else
 	{
-		if (character_match(current_token[a], delimiter) == 1)
-			break;
-	}
-	if (current_token[a] == '\0')
-		current_token = NULL;
-	else if 
-	{
-		current_token[a] = '\0';
-		current_token = current_token + 1;
-		if (*current_token == '\0')
-			current_token = NULL;
+		curr_token[a] = '\0';
+		curr_token = curr_token + a + 1;
+		if (*curr_token == '\0')
+		curr_token = NULL;
 	}
 	return (first_token);
 }
