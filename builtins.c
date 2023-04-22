@@ -12,7 +12,7 @@ void add_key(vars_t *varial)
 	unsigned int a = 0;
 	char **newenvironment;
 
-	while (varial->env[a] != NULL)
+	while (varial->envi[a] != NULL)
 	{
 		newenvironment = malloc(sizeof(char *) * (a + 3));
 
@@ -20,15 +20,15 @@ void add_key(vars_t *varial)
 		{
 	/* add new variable to the list of environ variables */
 
-			newenvironment[i] = varial->env[i];
+			newenvironment[i] = varial->envi[i];
 		}
 		newenvironment[a] = add_value(varial->av[1], varial->av[2]);
 		a++;
 	}
 	newenvironment[a + 1] = NULL;
 
-	free(varial->env);
-	varial->env = newenvironment;
+	free(varial->envi);
+	varial->envi = newenvironment;
 
 }
 
@@ -52,7 +52,7 @@ int _atoi(char *string)
 	while (check_num != 0)
 	{
 		check_num = check_num / 10;
-			bab++;
+		bab++;
 	}
 	while (string[a] != '\0' && a < bab)
 	{
