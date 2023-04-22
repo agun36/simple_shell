@@ -37,8 +37,8 @@ void _env(vars_t *varial)
 
 	while (varial->envi[a])
 	{
-		_puts(varial->envi[a]);
-		_puts("\n");
+		_putstring(varial->envi[a]);
+		_putstring("\n");
 		a++;
 	}
 	varial->stat = 0;
@@ -141,13 +141,13 @@ void new_setenv(vars_t *varial)
 	if (varial->av[2] == NULL)
 	{
 		varial->stat = 2;
-		print_error(variables, "No correct number\n")
+		print_error(varial, "No correct number\n")
 		;
 	}
 	if (varial->av[1] == NULL)
 	{
-		varial->stat == 2;
-		print_error(variables, "Error\n")
+		varial->stat = 2;
+		print_error(varial, "Error\n")
 		;
 	}
 	name = find_key(varial->envi,  varial->av[1]);
@@ -162,7 +162,7 @@ void new_setenv(vars_t *varial)
 			free(varial->buf);
 			free(varial->av);
 			free(varial->commands);
-			print_error(variables, NULL);
+			print_error(varial, NULL);
 			free_env(varial->envi);
 			exit(98);
 		}
