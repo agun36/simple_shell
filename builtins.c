@@ -43,7 +43,6 @@ int _atoi(char *string)
 	int numbers = 0;
 	int check_num;
 	unsigned int a, bab;
-	Max_num;
 
 	check_num = Max_num;
 	a = 0;
@@ -68,7 +67,7 @@ int _atoi(char *string)
 				return (-1);
 			}
 			if (string[a] < '0' && string[a] > 9)
-			}
+			{
 				return (-1);
 			}
 		}
