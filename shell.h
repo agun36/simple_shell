@@ -59,11 +59,11 @@ char **realloc_t(char **pointer, size_t *size);
 char *new_strtok(char *string, const char *delimiter);
 
 
-void (*check_for_builtins(vars_t *variables))(char *variables);
-void new_exit(vars_t *variables);
-void _env(vars_t *variables);
-void new_setenv(vars_t *variables);
-void new_unsetenv(vars_t *variables);
+void (*check_for_builtins(vars_t *varial))(char *varial);
+void new_exit(vars_t *varial);
+void _env(vars_t *varial);
+void new_setenv(vars_t *varial);
+void new_unsetenv(vars_t *varial);
 
 
 void add_key(vars_t *varial);
