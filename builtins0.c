@@ -123,7 +123,7 @@ void new_exit(vars_t *varial)
 	free(varial->buf);
 	free(varial->av);
 	free(varial->commands);
-	free_env(varial->envi);
+	free_envi(varial->envi);
 	exit(varial->stat);
 }
 
@@ -163,7 +163,7 @@ void new_setenv(vars_t *varial)
 			free(varial->av);
 			free(varial->commands);
 			print_error(varial, NULL);
-			free_env(varial->envi);
+			free_envi(varial->envi);
 			exit(98);
 		}
 		free(*name);
