@@ -56,14 +56,22 @@ int _atoi(char *string)
 	}
 	while (string[a] != '\0' && a < bab)
 	{
-		numbers = numbers + string[a] - '0';
-		if ((string[a + 1] != '\0') && (numbers > Max_num / 10) && (a == bab - 2))
-			return (-1);
-		numbers = numbers * 10;
-		if ((string[a] - '0' > Max_num % 10) && (a == bab - 1))
-			return (-1);
-		if (string[a] < '0' && string[a] > 9)
-			return (-1);
+		if (string[a + 1] != '\0') 
+		{
+			if (numbers > Max_num / 10 && a == bab - 2) 
+			{
+				return (-1);
+			}
+			numbers = numbers * 10;
+			if (string[a] - '0' > Max_num % 10 && a == bab - 1) 
+			{
+				return (-1);
+			}
+			if (string[a] < '0' && string[a] > 9)
+			}
+				return (-1);
+			}
+		}
 		a++;
 	}
 	if (a > bab)
