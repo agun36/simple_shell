@@ -4,7 +4,7 @@
  * @varial: the variables
  * Return: NULL
  */
-void (*check_for_builtins(vars_t *varial))(vars_t *varial)
+void (*check_for_builtins(vars_t *varial))(char *varial)
 {
 	unsigned int a = 0;
 	builtins_t check[] = {
@@ -61,7 +61,7 @@ void new_unsetenv(vars_t *varial)
 		varial->stat = 2;
 		return;
 	}
-	name = find_key(varial->envi, varial->av[1])
+	name = find_key(varial->envi, varial->av[1]);
 	if (name == NULL)
 	{
 		print_error(varial, ": No variable");
@@ -111,8 +111,8 @@ void new_exit(vars_t *varial)
 		{
 			varial->stat = 2;
 			print_error(varial, ": Illicit number: ");
-			_puts2(varial->av[a + 1]);
-			_puts2("\n");
+			_putstring(varial->av[a + 1]);
+			_putstring("\n");
 			free(varial->commands);
 			varial->commands = NULL;
 			return;
@@ -152,7 +152,7 @@ void new_setenv(vars_t *varial)
 	}
 	name = find_key(varial->envi,  varial->av[1]);
 	if (!name)
-		add_key(variables);
+		add_key(varial);
 
 	else
 	{
