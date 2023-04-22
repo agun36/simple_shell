@@ -25,7 +25,7 @@ char **token(char *buffer, char *delimiter)
 		i++;
 		if (i == count)
 		{
-			tokens = realloc_t(tokens, &count);
+			tokens = _realloc(tokens, &count);
 			if (tokens == NULL)
 			{
 				perror("Main Error");
