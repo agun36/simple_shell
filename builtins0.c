@@ -4,7 +4,7 @@
  * @varial: the variables
  * Return: NULL
  */
-void (*check_for_builtins(vars_t *varial))(char *varial)
+void (*check_for_builtins(vars_t *varial))(vars_t *varial)
 {
 	unsigned int a = 0;
 	builtins_t check[] = {
