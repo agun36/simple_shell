@@ -7,7 +7,7 @@
  * Return: Nothing
  */
 
-print_error(vars_t *varial, char *message)
+void print_error(vars_t *varial, char *message)
 {
 	char *num;
 
