@@ -23,11 +23,11 @@ char **make_env(char **environment)
 	}
 	else
 	{
-		b = 0;
-		while (environment[b] != NULL)
+		a = 0;
+		while (environment[a] != NULL)
 		{
-			newenvironment[b] = _strdup(environment[b]);
-			b = b + 1;
+			newenvironment[a] = _strdup(environment[a]);
+			a = a + 1;
 		}
 		newenvironment[a] = NULL;
 		return (newenvironment);

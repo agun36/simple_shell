@@ -14,7 +14,7 @@ print_error(vars_t *varial, char *message)
 	_putstring(varial->argv[0]);
 	_putstring("- ");
 
-	num = _uitoa(varial->num);
+	num = _uitoa(varial->count);
 	_putstring(num);
 	free(num);
 	_putstring("- ");
