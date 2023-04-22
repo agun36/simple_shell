@@ -40,17 +40,18 @@ char *new_strtok(char *string, const char *delimiter)
 	unsigned int i;
 
 	if (string != NULL)
-	cur_t = string;
+		cur_t = string;
+
 	first_token = cur_t;
 	if (first_token == NULL)
-	return (NULL);
+		return (NULL);
 
 	i = 0;
 	while (cur_t[i] != '\0')
 	{
 		if (check_match(cur_t[i], delimiter) == 0)
 			break;
-			i++;
+		i++;
 	}
 	if (cur_t[i] == '\0' || cur_t[i] == '#')
 	{
@@ -70,13 +71,13 @@ char *new_strtok(char *string, const char *delimiter)
 		i++;
 	}
 	if (cur_t[i] == '\0')
-	cur_t = NULL;
+		cur_t = NULL;
 	else
 	{
 		cur_t[i] = '\0';
 		cur_t = cur_t + i + 1;
 		if (*cur_t == '\0')
-		cur_t = NULL;
+			cur_t = NULL;
 	}
 	return (first_token);
 }
