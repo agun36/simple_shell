@@ -45,7 +45,7 @@ typedef struct builtins
 
 /* Function prototype*/
 char **make_env(char **environment);
-void free_env(char **environment);
+void free_env(char **envi);
 ssize_t _puts(char *string);
 char *_strdup(char *strt_memo);
 int _strcmpr(char *strcmp_str, char *strcmp_str2);
