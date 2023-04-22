@@ -13,7 +13,7 @@ void add_key(vars_t *varial)
 	int i;
 	char **newenvironment;
 
-	while (varial->environment[a] != NULL)
+	while (varial->env[a] != NULL)
 	{
 		newenvironment = malloc(sizeof(char *) * (a + 3));
 
@@ -21,15 +21,15 @@ void add_key(vars_t *varial)
 		{
 	/* add new variable to the list of environ variables */
 
-			newenvironment[i] = varial->environment[i];
+			newenvironment[i] = varial->env[i];
 		}
 		newenvironment[a] = add_value(varial->av[1], varial->av[2]);
-		    a++;
+			a++;
 	}
 	newenvironment[a + 1] = NULL;
 
-	free(varial->environment);
-	varial->environment = newenvironment;
+	free(varial->env);
+	varial->env = newenvironment;
 
 }
 
@@ -52,7 +52,7 @@ int _atoi(char *string)
 	while (check_num != 0)
 	{
 		check_num = check_num / 10;
-		bab++;
+			bab++;
 	}
 	while (string[a] != '\0' && a < bab)
 	{
@@ -90,10 +90,11 @@ char *add_value(char *name, char *value)
 	if (!key)
 		return (NULL);
 	a = 0;
+
 	while (name[a] != '\0')
 	{
 		key[a] = name[a];
-		a++;
+			a++;
 	}
 	key[a] = '=';
 	b = 0;
@@ -101,7 +102,7 @@ char *add_value(char *name, char *value)
 	while (value[b] != '\0')
 	{
 		key[b + a + 1] = value[b];
-		b++;
+			b++;
 	}
 	key[1 + b + a] = '\0';
 		return (key);
@@ -126,11 +127,11 @@ char **find_key(char **environment, char *name)
 		{
 			if (name[b] != environment[a][b])
 				break;
-				b++;
+			b++;
 		}
 		if (environment[a][b] == '=' && b == length)
 			return (&environment[a]);
-			a++;
+		a++;
 	}
 	return (NULL);
 }
