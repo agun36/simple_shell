@@ -10,7 +10,6 @@
 void add_key(vars_t *varial)
 {
 	unsigned int a = 0;
-	int i;
 	char **newenvironment;
 
 	while (varial->env[a] != NULL)
@@ -24,7 +23,7 @@ void add_key(vars_t *varial)
 			newenvironment[i] = varial->env[i];
 		}
 		newenvironment[a] = add_value(varial->av[1], varial->av[2]);
-			a++;
+		a++;
 	}
 	newenvironment[a + 1] = NULL;
 
@@ -44,6 +43,7 @@ int _atoi(char *string)
 	int numbers = 0;
 	int check_num;
 	unsigned int a, bab;
+	Max_num;
 
 	check_num = Max_num;
 	a = 0;
@@ -65,10 +65,10 @@ int _atoi(char *string)
 		if (string[a] < '0' && string[a] > 9)
 			return (-1);
 		a++;
-		}
+	}
 	if (a > bab)
 		return (-1);
-		return (numbers);
+	return (numbers);
 }
 
 /**
