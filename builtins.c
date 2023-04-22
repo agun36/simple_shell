@@ -10,13 +10,14 @@
 void add_key(vars_t *varial)
 {
 	unsigned int a = 0;
+	unsigned int i;
 	char **newenvironment;
 
 	while (varial->envi[a] != NULL)
 	{
 		newenvironment = malloc(sizeof(char *) * (a + 3));
 
-		for (int i = 0; i < a; i++)
+		for (i = 0; i < a; i++)
 		{
 	/* add new variable to the list of environ variables */
 
@@ -43,9 +44,8 @@ int _atoi(char *string)
 	int numbers = 0;
 	int check_num;
 	unsigned int a, bab;
-	int Max_num;
 
-	check_num = Max_num;
+	check_num = INT_MAX;
 	a = 0;
 	bab = 0;
 
@@ -58,12 +58,12 @@ int _atoi(char *string)
 	{
 		if (string[a + 1] != '\0') 
 		{
-			if (numbers > Max_num / 10 && a == bab - 2) 
+			if (numbers > INT_MAX / 10 && a == bab - 2) 
 			{
 				return (-1);
 			}
 			numbers = numbers * 10;
-			if (string[a] - '0' > Max_num % 10 && a == bab - 1) 
+			if (string[a] - '0' > INT_MAX % 10 && a == bab - 1) 
 			{
 				return (-1);
 			}
@@ -127,7 +127,7 @@ char **find_key(char **environment, char *name)
 	unsigned int a = 0;
 	unsigned int length = _strlen(name);
 
-	while (environment[a] != '\0')
+	while (environment[a] != NULL)
 	{
 		unsigned int b = 0;
 

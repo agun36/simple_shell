@@ -16,9 +16,9 @@ void (*check_for_builtins(vars_t *variables))(vars_t *variables)
 	};
 	while (check[a].f != NULL)
 	{
-		if (_strcmpr(vars->av[0], check[a].name) == 0)
+		if (_strcmpr(variables->av[0], check[a].name) == 0)
 			break;
-			a++;
+		a++;
 	}
 	if (check[a].f != NULL)
 		check[a].f(variables);
@@ -35,13 +35,13 @@ void _env(vars_t *variables)
 {
 	unsigned int a = 0;
 
-	while (variables->env[a])
+	while (variables->envi[a])
 	{
-		_puts(variables->env[a]);
+		_puts(variables->envi[a]);
 		_puts("\n");
 		a++;
 	}
-	variables->stat = 0;
+	variables->status = 0;
 }
 
 /**
@@ -58,7 +58,7 @@ void new_unsetenv(vars_t *variables)
 	if (variables->av[1] == NULL)
 	{
 		print_error(variables, ": Incorrect\n");
-		variables->stat = 2;
+		variables->status = 2;
 		return;
 	}
 	name = find_key(variables->env, variables->av[1])
@@ -67,31 +67,31 @@ void new_unsetenv(vars_t *variables)
 		print_error(variables, ": No variable");
 		return;
 	}
-	for (a = 0; variables->env[a] != NULL; a++)
+	for (a = 0; variables->envi[a] != NULL; a++)
 		;
 	environ = malloc(sizeof(char *) * a);
 	if (environ == NULL)
 	{
 		print_error(variables, NULL);
-		variables->stat = 98;
+		variables->status = 98;
 		new_exit(variables);
 	}
 	a = 0;
-	while (variables->env[a] != *name)
+	while (variables->envi[a] != *name)
 	{
-		environ[a] = variables->env[a];
+		environ[a] = variables->envi[a];
 		a++; }
 	b = a + 1;
-	while (variables->env[b] != NULL)
+	while (variables->envi[b] != NULL)
 	{
-		environ[a] = variables->env[b];
+		environ[a] = variables->envi[b];
 			a++;
 			b++; }
 	environ[a] = NULL;
 	free(*name);
-	free(variables->env);
-	variables->env = environ;
-	variables->stat = 0;
+	free(variables->envi);
+	variables->envi = environ;
+	variables->status = 0;
 }
 
 /**
@@ -109,7 +109,7 @@ void new_exit(vars_t *variables)
 		stat = _atoi(variables->av[a + 1]);
 		if (stat == -1)
 		{
-			variables->stat = 2;
+			variables->status = 2;
 			print_error(variables, ": Illicit number: ");
 			_puts2(variables->av[a + 1]);
 			_puts2("\n");
@@ -117,14 +117,14 @@ void new_exit(vars_t *variables)
 			variables->commands = NULL;
 			return;
 		}
-		variables->stat = stat;
+		variables->status = stat;
 		a++;
 	}
 	free(variables->buf);
 	free(variables->av);
 	free(variables->commands);
-	free_env(variables->env);
-	exit(variables->stat);
+	free_env(variables->envi);
+	exit(variables->status);
 }
 
 /**
@@ -140,17 +140,17 @@ void new_setenv(vars_t *variables)
 
 	if (variables->av[2] == NULL)
 	{
-		variables->stat = 2;
+		variables->status = 2;
 		print_error(variables, "No correct number\n")
 		;
 	}
 	if (variables->av[1] == NULL)
 	{
-		variables->stat == 2;
+		variables->status == 2;
 		print_error(variables, "Error\n")
 		;
 	}
-	name = find_key(variables->env,  variables->av[1]);
+	name = find_key(variables->envi,  variables->av[1]);
 	if (!name)
 		add_key(variables);
 
@@ -163,13 +163,13 @@ void new_setenv(vars_t *variables)
 			free(variables->av);
 			free(variables->commands);
 			print_error(variables, NULL);
-			free_env(variables->env);
+			free_env(variables->envi);
 			exit(98);
 		}
 		free(*name);
 		*name = variables;
 	}
-	variables->stat = 0;
+	variables->status = 0;
 }
 
 
