@@ -63,9 +63,11 @@ char *new_strtok(char *string, const char *delimiter)
 	i = 0;
 	while (cur_t[i] != '\0')
 	{
-		if (check_match(cur_t[i], delimiter) == 1)
-			break;
+		while (check_match(cur_t[i], delimiter) != 1)
+		{
 			i++;
+		}
+		i++;
 	}
 	if (cur_t[i] == '\0')
 	cur_t = NULL;
@@ -78,7 +80,4 @@ char *new_strtok(char *string, const char *delimiter)
 	}
 	return (first_token);
 }
-
-
-
 
