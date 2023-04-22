@@ -43,6 +43,7 @@ int _atoi(char *string)
 	int numbers = 0;
 	int check_num;
 	unsigned int a, bab;
+	int Max_num;
 
 	check_num = Max_num;
 	a = 0;
@@ -124,7 +125,7 @@ char *add_value(char *name, char *value)
 char **find_key(char **environment, char *name)
 {
 	unsigned int a = 0;
-	unsigned int length = strlen(name);
+	unsigned int length = _strlen(name);
 
 	while (environment[a] != '\0')
 	{
