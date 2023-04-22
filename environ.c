@@ -11,8 +11,10 @@ char **make_env(char **environment)
 	char **newenvironment = NULL;
 	size_t a;
 
-	for (a = 0; environment[a] != NULL; a++)
-		;
+	a = 0;
+	while (environment[a] != NULL)
+		a++;
+
 	newenvironment = malloc(sizeof(char *) * (a + 2));
 	if (!newenvironment)
 	{
@@ -20,15 +22,17 @@ char **make_env(char **environment)
 		exit(1);
 	}
 	else
-	for (a = 0; environment[a] != NULL; a++)
-		newenvironment[a] = _strdup(environment[a]);
-	newenvironment[a] = NULL;
-	return (newenvironment);
-
-	free(newenvironment);
-	free(environment);
-
+	{
+		b = 0;
+		while (environment[b] != NULL)
+		{
+			newenvironment[b] = _strdup(environment[b]);
+			b = b + 1;
+		}
+		newenvironment[a] = NULL;
+		return (newenvironment);
+		free(newenvironment);
+		free(environment);
+	}
 }
-
-
 

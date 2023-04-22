@@ -7,13 +7,13 @@
  * Return: Nothing
  */
 
-void add_key(vars_t *variables)
+void add_key(vars_t *varial)
 {
 	unsigned int a = 0;
 	int i;
 	char **newenvironment;
 
-	while (variables->environment[a] != NULL)
+	while (varial->environment[a] != NULL)
 	{
 		newenvironment = malloc(sizeof(char *) * (a + 3));
 
@@ -21,15 +21,15 @@ void add_key(vars_t *variables)
 		{
 	/* add new variable to the list of environ variables */
 
-			newenvironment[i] = variables->environment[i];
+			newenvironment[i] = varial->environment[i];
 		}
-		newenvironment[a] = add_value(variables->av[1], variables->av[2]);
+		newenvironment[a] = add_value(varial->av[1], varial->av[2]);
 		    a++;
 	}
 	newenvironment[a + 1] = NULL;
 
-	free(variables->environment);
-	variables->environment = newenvironment;
+	free(varial->environment);
+	varial->environment = newenvironment;
 
 }
 

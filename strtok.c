@@ -9,17 +9,23 @@
 
 unsigned int check_match(char z, const char *string)
 {
-	unsigned int a = 0;
-
+	int a = 0;
 	/* interating through the string to compare the string character*/
 	while (string[a] != '\0')
 	{
-		if (z != string[a])
-			return (0);
+		if (z == string[a])
+		{
 			a++;
+			return (1);
 	}
-	return (1);
+		else
+		{
+			return (0);
+		}
+	}
+	return (0);
 }
+
 /**
  * new_strtok- the new strtok
  * @string: the string we want to tokenize
@@ -29,39 +35,50 @@ unsigned int check_match(char z, const char *string)
 
 char *new_strtok(char *string, const char *delimiter)
 {
-	unsigned int a;
 	static char *first_token;
-	static char *curr_token;
+	static char *cur_t;
+	unsigned int i;
 
-	if (string)
-		curr_token = string;
-	first_token = curr_token;
+	if (string != NULL)
+	cur_t = string;
+	first_token = cur_t;
+	if (first_token == NULL)
+	return (NULL);
 
-	if (!first_token)
-		return (NULL);
-
-	a = 0;
-
-	while (curr_token[a] != '\0' && check_match(curr_token[a], delimiter) != 1)
+	i = 0;
+	while (cur_t[i] != '\0')
 	{
-		a++;
+		if (check_match(cur_t[i], delimiter) == 0)
+			break;
+			i++;
 	}
-	if (curr_token[a] == '#')
+	if (cur_t[i] == '\0' || cur_t[i] == '#')
 	{
-		curr_token = NULL;
+		cur_t = NULL;
 		return (NULL);
 	}
-	if (curr_token[a] == '\0')
-		curr_token = NULL;
+	first_token = cur_t + i;
+	cur_t = first_token;
 
+	i = 0;
+	while (cur_t[i] != '\0')
+	{
+		if (check_match(cur_t[i], delimiter) == 1)
+			break;
+			i++;
+	}
+	if (cur_t[i] == '\0')
+	cur_t = NULL;
 	else
 	{
-		curr_token[a] = '\0';
-		curr_token = curr_token + a + 1;
-		if (*curr_token == '\0')
-		curr_token = NULL;
+		cur_t[i] = '\0';
+		cur_t = cur_t + i + 1;
+		if (*cur_t == '\0')
+		cur_t = NULL;
 	}
 	return (first_token);
 }
+
+
 
 

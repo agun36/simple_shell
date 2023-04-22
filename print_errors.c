@@ -7,19 +7,19 @@
  * Return: Nothing
  */
 
-print_error(vars_t *variables, char *message)
+print_error(vars_t *varial, char *message)
 {
 	char *num;
 
-	_putstring(variables->argv[0]);
+	_putstring(varial->argv[0]);
 	_putstring("- ");
 
-	num = _uitoa(variables->num);
+	num = _uitoa(varial->num);
 	_putstring(num);
 	free(num);
 	_putstring("- ");
 
-	_putstring(variables->av[0]);
+	_putstring(varial->av[0]);
 	if (message != NULL)
 		_putstring(message);
 
@@ -58,22 +58,26 @@ char *_uitoa(unsigned int num)
 {
 	char *conv_string;
 	unsigned int fid, n;
-
 	fid = num;
-	for (n = 0; fid != 0; n++)
-		fid = fid / 10;
+	n = 0;
 
+	while (fid != 0)
+	{
+		n++;
+		fid /= 10;
+	}
 	conv_string = malloc(sizeof(char) * (n + 1));
 	if (!conv_string)
 	{
-		perror("this is a serious error");
+		perror("Error1");
 		exit(98);
 	}
-	else if (conv_string[n] = "\0")
-	for (--n; num; --n)
+	conv_string[n] = '\0';
+	while (n)
 	{
-		conv_string[n] = (num % 10) + '0';
-		num = num / 10;
+		conv_string[--n] = (num % 10) + '0';
+		num /= 10;
 	}
 	return (conv_string);
 }
+	
