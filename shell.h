@@ -67,7 +67,7 @@ void new_unsetenv(vars_t *variables);
 
 
 void add_key(vars_t *varial);
-char **find_key(char **environment, char *key);
+char **find_key(char **environment, char *name);
 char *add_value(char *key, char *value);
 int _atoi(char *string);
 
