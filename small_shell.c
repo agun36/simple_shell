@@ -69,7 +69,7 @@ void process_input(vars_t *varial)
  * @argv: Argument vector
  * @environment: Environment variables
  *
- * Return: Exit status
+ * Return: 0 exit stat
  */
 int main(int argc __attribute__((unused)), char **argv, char **environment)
 {
