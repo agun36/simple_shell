@@ -51,7 +51,7 @@ char *_strdup(char *strt_memo);
 int _strcmpr(char *strcmp_str, char *strcmp_str2);
 char *_strcat(char *strcat_str, char *strcat_str2);
 unsigned int _strlen(char *string);
-char **token(char *buf, char *delimiter);
+char **token_t(char *buf, char *delimiter);
 
 char **_realloc(char **pointer, size_t *size);
 char *strtok_t(char *string, const char *delimiter);
