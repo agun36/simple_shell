@@ -7,7 +7,7 @@
  *
  * Return: pointer to an array of pointers to the tokens
  */
-char **token(char *buffer, char *delimiter)
+char **token_t(char *buffer, char *delimiter)
 {
 	char **tokens = NULL;
 	size_t i = 0, count = 10;
