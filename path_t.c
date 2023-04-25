@@ -139,7 +139,7 @@ void check_for_path(vars_t *vars)
 		if (path != NULL)
 		{
 			paths_double_dot = _strdup(path + 5);
-			path_t = token(paths_double_dot, ":");
+			path_t =  token_t(paths_double_dot, ":");
 			for (i = 0; path_t && path_t[i]; i++, free(check))
 			{
 				check = _strcat(path_t[i], vars->av[0]);
