@@ -1,14 +1,14 @@
 #include "shell.h"
 
 /*global func*/
-<<<<<<< HEAD
+
 unsigned int sig_flag;
 
 unsigned int flag_error;
-=======
+
 static void sig_handler(int signal_number);
 
->>>>>>> c5275de04a9d22507387e109712ff9834c65cc08
+
 /**
  * sig_handler - Signal handler for SIGINT
  * @uuv: Unused variable
