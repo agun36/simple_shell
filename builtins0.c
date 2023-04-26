@@ -137,16 +137,20 @@ void new_setenv(vars_t *varial)
 	char *variables;
 	char **name;
 
+	if (varial->av[1] == NULL)
+	{
+		if (varial->av[2] == NULL)
+		{
+			varial->stat = 2;
+			print_error(varial, "No correct number\n");
+			return;
+		}
+	}
 	if (varial->av[2] == NULL)
 	{
 		varial->stat = 2;
-		print_error(varial, "No correct number\n")
-		;
-	}
-	if (varial->av[1] == NULL)
-	{
-		varial->stat = 2;
 		print_error(varial, "Error\n");
+		return;
 	}	
 	name = find_key(varial->envi,  varial->av[1]);
 	if (!name)
