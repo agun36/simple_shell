@@ -18,7 +18,7 @@ char **_realloc(char **pointer, size_t *size)
 		while (b < (*size))
 		{
 			new_space[b] = pointer[b];
-				b++;
+			b++;
 		}
 	}
 	else

@@ -104,7 +104,7 @@ void new_exit(vars_t *varial)
 	int stat;
 	int a = 0;
 
-	while (_strcmpr(varial->av[a], "exit") == 0 && varial->av[a + 1] != NULL)
+	if (_strcmpr(varial->av[a], "exit") == 0 && varial->av[a + 1] != NULL)
 	{
 		stat = _atoi(varial->av[a + 1]);
 		if (stat == -1)
@@ -118,7 +118,6 @@ void new_exit(vars_t *varial)
 			return;
 		}
 		varial->stat = stat;
-		a++;
 	}
 	free(varial->buf);
 	free(varial->av);
@@ -147,9 +146,8 @@ void new_setenv(vars_t *varial)
 	if (varial->av[1] == NULL)
 	{
 		varial->stat = 2;
-		print_error(varial, "Error\n")
-		;
-	}
+		print_error(varial, "Error\n");
+	}	
 	name = find_key(varial->envi,  varial->av[1]);
 	if (!name)
 		add_key(varial);

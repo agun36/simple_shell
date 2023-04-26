@@ -43,15 +43,14 @@ char **make_env(char **environment)
  * Return: 1 on Failure
  */
 
-int print_env(vars_t *varial)
+void print_env(vars_t *varial)
 {
 	unsigned int a = 0;
 
-	while (varial->envi[a])
+	while (envi[a]!= NULL)
 	{
-		_putstring(varial->envi[a]);
+		free(envi[a]);
 		a++;
 	}
-	return (0);
 }
 
