@@ -23,7 +23,7 @@ void add_key(vars_t *varial)
 
 			newenvironment[i] = varial->envi[i];
 		}
-		a++
+		a++;
 	}
 	newenvironment[a] = add_value(varial->av[1], varial->av[2]);
 	if (newenvironment[a] == NULL)
