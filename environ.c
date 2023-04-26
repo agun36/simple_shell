@@ -30,20 +30,20 @@ char **make_env(char **environment)
 			a = a + 1;
 		}
 		newenvironment[a] = NULL;
-		return (newenvironment);
 		free(newenvironment);
 		free(environment);
+		return (newenvironment);
 	}
 }
 
 
 /**
- * print_env -this prints the current eniviron
- * @varial: variables
- * Return: 1 on Failure
+ * print_env -this frees the eniviron
+ * @envi: environment
+ * Return: nothing
  */
 
-void print_env(vars_t *varial)
+void free_env(char **envi)
 {
 	unsigned int a = 0;
 
