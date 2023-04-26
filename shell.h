@@ -85,5 +85,8 @@ char *_uitoa(unsigned int num);
 void process_input(vars_t *varial);
 void check_is_pipe(unsigned int *is_pipe);
 void initialize_vars(vars_t *varial, char **argv, char **environment);
+unsigned int sig_flag;
+unsigned int flag_error;
+
 
 #endif /* _SHELL_H_ */
