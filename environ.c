@@ -47,9 +47,9 @@ int print_env(vars_t *varial)
 {
 	unsigned int a = 0;
 
-	while (varial->env[a])
+	while (varial->envi[a])
 	{
-		_putstring(varial->env[a]);
+		_putstring(varial->envi[a]);
 		a++;
 	}
 	return (0);
