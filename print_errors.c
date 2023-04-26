@@ -65,8 +65,8 @@ char *_uitoa(unsigned int num)
 
 	while (fid != 0)
 	{
-		n++;
 		fid /= 10;
+		n++;
 	}
 	conv_string = malloc(sizeof(char) * (n + 1));
 	if (!conv_string)

@@ -2,7 +2,7 @@
 
 /**
  * add_key - this adds a new environment variables
- * @variables: pointer to the struct of variables
+ * @varial: pointer to the struct of variables
  *
  * Return: Nothing
  */
@@ -23,8 +23,18 @@ void add_key(vars_t *varial)
 
 			newenvironment[i] = varial->envi[i];
 		}
-		newenvironment[a] = add_value(varial->av[1], varial->av[2]);
-		a++;
+		a++
+	}
+	newenvironment[a] = add_value(varial->av[1], varial->av[2]);
+	if (newenvironment[a] == NULL)
+	{
+		print_error(varial, NULL);
+		free(varial->buf);
+		free(varial->commands);
+		free(varial->av);
+		free_env(varial->envi);
+		free(newenvironment);
+		exit(98);
 	}
 	newenvironment[a + 1] = NULL;
 
@@ -56,14 +66,14 @@ int _atoi(char *string)
 	}
 	while (string[a] != '\0' && a < bab)
 	{
-		if (string[a + 1] != '\0') 
+		if (string[a + 1] != '\0')
 		{
-			if (numbers > INT_MAX / 10 && a == bab - 2) 
+			if (numbers > INT_MAX / 10 && a == bab - 2)
 			{
 				return (-1);
 			}
 			numbers = numbers * 10;
-			if (string[a] - '0' > INT_MAX % 10 && a == bab - 1) 
+			if (string[a] - '0' > INT_MAX % 10 && a == bab - 1)
 			{
 				return (-1);
 			}
@@ -102,7 +112,7 @@ char *add_value(char *name, char *value)
 	while (name[a] != '\0')
 	{
 		key[a] = name[a];
-			a++;
+		a++;
 	}
 	key[a] = '=';
 	b = 0;
@@ -110,10 +120,10 @@ char *add_value(char *name, char *value)
 	while (value[b] != '\0')
 	{
 		key[b + a + 1] = value[b];
-			b++;
+		b++;
 	}
-	key[1 + b + a] = '\0';
-		return (key);
+	key[b + 1 + a] = '\0';
+	return (key);
 }
 
 /**
