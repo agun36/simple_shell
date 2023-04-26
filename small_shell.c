@@ -1,46 +1,22 @@
 #include "shell.h"
 
 /*global func*/
-static void sig_handler(int uuv);
+static void sig_handler(int signal_number);
 unsigned int flag_error;
 /**
  * sig_handler - Signal handler for SIGINT
  * @uuv: Unused variable
  */
-
-static void sig_handler(int uuv)
+static void sig_handler(int signal_number)
 {
-	(void) uuv;
-	if (flag_error == 0)
+	(void)signal_number;
+	if (sig_flag == 0)
 		_puts("\n$ ");
 	else
 		_puts("\n");
 }
 
-/**
- * initialize_vars - Initialize vars structure
- * @variables: Pointer to vars structure
- * @argv: Argument vector
- * @environment: Environment variables
- */
-void initialize_vars(vars_t *variables, char **argv, char **environment)
-{
-	variables->argv = argv;
-	variables->envi = make_env(environment);
-	signal(SIGINT, sig_handler);
-}
 
-/**
- * check_is_pipe - Check if input is a pipe
- * @is_pipe: Pointer to is_pipe variable
- */
-void check_is_pipe(unsigned int *is_pipe)
-{
-	if (!isatty(STDIN_FILENO))
-		*is_pipe = 1;
-	if (*is_pipe == 0)
-		_puts("$ ");
-}
 
 /**
  * process_input - Process input from user
