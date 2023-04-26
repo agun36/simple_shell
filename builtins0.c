@@ -89,7 +89,7 @@ void new_unsetenv(vars_t *varial)
 			b++; }
 	environ[a] = NULL;
 	free(*name);
-	free(varial->envi);
+	free_env(varial->envi);
 	varial->envi = environ;
 	varial->stat = 0;
 }
@@ -123,7 +123,7 @@ void new_exit(vars_t *varial)
 	free(varial->buf);
 	free(varial->av);
 	free(varial->commands);
-	free(varial->envi);
+	free_env(varial->envi);
 	exit(varial->stat);
 }
 
