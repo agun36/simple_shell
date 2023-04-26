@@ -118,6 +118,7 @@ char *find_path(char **env)
 	}
 	return (env[i]);
 }
+
 /**
  * check_for_path - checks if the command is in the PATH
  * @vars: pointer to struct of variables
@@ -140,6 +141,7 @@ void check_for_path(vars_t *vars)
 		{
 			paths_double_dot = _strdup(path + 5);
 			path_t =  token_t(paths_double_dot, ":");
+
 			for (i = 0; path_t && path_t[i]; i++, free(check))
 			{
 				check = _strcat(path_t[i], vars->av[0]);
@@ -150,20 +152,22 @@ void check_for_path(vars_t *vars)
 					break;
 				}
 			}
+
 			free(paths_double_dot);
-			if (!path)
+
+			if (path == NULL || path_t[i] == NULL)
 			{
+				print_error(vars, ": is empty\n");
 				vars->stat = 127;
-				new_exit(vars);
 			}
 		}
-		if (path == NULL || path_t[i] == NULL)
+		else
 		{
-			print_error(vars, ": is empty\n");
 			vars->stat = 127;
+			new_exit(vars);
 		}
-		free(paths_double_dot);
 	}
+
 	if (reacty == 1)
 		new_exit(vars);
 }
