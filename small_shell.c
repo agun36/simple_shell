@@ -1,7 +1,8 @@
 #include "shell.h"
 
 /*global func*/
-static void sig_handler(int signal_number);
+unsigned int sig_flag;
+
 unsigned int flag_error;
 /**
  * sig_handler - Signal handler for SIGINT
@@ -15,6 +16,7 @@ static void sig_handler(int signal_number)
 	else
 		_puts("\n");
 }
+
 
 
 
@@ -40,6 +42,40 @@ void process_input(vars_t *varial)
 }
 
 /**
+
+initialize_vars - Initializes the variables in the vars_t structure
+@vars: pointer to the vars_t structure to initialize
+@argv: double pointer to an array of strings containing the arguments
+@environment: double pointer to an array of strings containing the environment variables
+*/
+void initialize_vars(vars_t *vars, char **argv, char **environment)
+{
+	vars->argv = argv;
+	vars->envi = environment;
+	vars->count = 0;
+	vars->stat = 0;
+	vars->buf = NULL;
+	vars->commands = NULL;
+}
+
+/**
+
+check_is_pipe - Checks if the command input contains a pipe
+
+@is_pipe: pointer to an unsigned int that will be set to 1 if the command input contains a pipe, 0 otherwise
+*/
+void check_is_pipe(unsigned int *is_pipe)
+{
+	char *tty;
+
+	tty = ttyname(STDIN_FILENO);
+	if (tty != NULL)
+		*is_pipe = 1;
+	else
+		*is_pipe = 0;
+}
+
+/**
  * main - Main function
  * @argc: Argument count
  * @argv: Argument vector
@@ -51,25 +87,26 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 {
 	size_t lenght_buffer = 0;
 	unsigned int is_pipe = 0;
-	vars_t vars = {NULL, NULL, NULL, 0, NULL, 0, NULL};
+	vars_t var = {NULL, NULL, NULL, 0, NULL, 0, NULL};
 
-	initialize_vars(&vars, argv, environment);
+	initialize_vars(&var, argv, environment);
+	signal(SIGINT, sig_handler);
 	check_is_pipe(&is_pipe);
 	flag_error = 0;
-	while (getline(&(vars.buf), &lenght_buffer, stdin) != -1)
+	while (getline(&(var.buf), &lenght_buffer, stdin) != -1)
 	{
 		flag_error = 1;
-		process_input(&vars);
-		free(vars.buf);
-		free(vars.commands);
+		process_input(&var);
+		free(var.buf);
+		free(var.commands);
 		flag_error = 0;
 		if (is_pipe == 0)
 			_puts("$ ");
-		vars.buf = NULL;
+		var.buf = NULL;
 	}
 	if (is_pipe == 0)
 		_puts("\n");
-	free(vars.envi);
-	free(vars.buf);
-	exit(vars.stat);
+	free(var.envi);
+	free(var.buf);
+	exit(var.stat);
 }
