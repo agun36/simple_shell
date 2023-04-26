@@ -2,7 +2,7 @@
 
 /*global func*/
 static void sig_handler(int signal_number);
-unsigned int flag_error;
+
 /**
  * sig_handler - Signal handler for SIGINT
  * @uuv: Unused variable
