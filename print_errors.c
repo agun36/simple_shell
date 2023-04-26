@@ -2,7 +2,7 @@
 
 /**
  * print_error - this prints the error to standard error
- * @vars: pointer to the struct of the variables
+ * @varial: pointer to the struct of the variables
  * @message: the message to be printed out
  * Return: Nothing
  */
@@ -16,6 +16,7 @@ void print_error(vars_t *varial, char *message)
 
 	num = _uitoa(varial->count);
 	_putstring(num);
+
 	free(num);
 	_putstring("- ");
 
@@ -58,6 +59,7 @@ char *_uitoa(unsigned int num)
 {
 	char *conv_string;
 	unsigned int fid, n;
+
 	fid = num;
 	n = 0;
 
@@ -80,4 +82,4 @@ char *_uitoa(unsigned int num)
 	}
 	return (conv_string);
 }
-	
+

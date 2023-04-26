@@ -36,3 +36,22 @@ char **make_env(char **environment)
 	}
 }
 
+
+/**
+ * print_env -this prints the current eniviron
+ * @varial: variables
+ * Return: 1 on Failure
+ */
+
+int print_env(vars_t *varial)
+{
+	unsigned int a = 0;
+
+	while (varial->env[a])
+	{
+		_putstring(varial->env[a]);
+		a++;
+	}
+	return (0);
+}
+
