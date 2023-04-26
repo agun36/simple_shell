@@ -67,7 +67,7 @@ void initialize_vars(vars_t *vars, char **argv, char **environment)
 
 check_is_pipe - Checks if the command input contains a pipe
 
-@is_pipe: pointer to an unsigned int that will be set to 1 if the command input contains a pipe, 0 otherwise
+@is_pipe: ptr to an unsigned int that will b set to 1 if d cmd input  pipe, 0
 */
 void check_is_pipe(unsigned int *is_pipe)
 {
