@@ -37,8 +37,8 @@ void _env(vars_t *varial)
 
 	while (varial->envi[a])
 	{
-		_putstring(varial->envi[a]);
-		_putstring("\n");
+		_puts(varial->envi[a]);
+		_puts("\n");
 		a++;
 	}
 	varial->stat = 0;
@@ -85,8 +85,8 @@ void new_unsetenv(vars_t *varial)
 	while (varial->envi[b] != NULL)
 	{
 		environ[a] = varial->envi[b];
-			a++;
-			b++; }
+		a++;
+		b++; }
 	environ[a] = NULL;
 	free(*name);
 	free_env(varial->envi);
