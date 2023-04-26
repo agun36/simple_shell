@@ -64,7 +64,7 @@ void new_exit(vars_t *varial);
 void _env(vars_t *varial);
 void new_setenv(vars_t *varial);
 void new_unsetenv(vars_t *varial);
-
+int print_env(vars_t *vars);
 
 void add_key(vars_t *varial);
 char **find_key(char **environment, char *name);
@@ -88,5 +88,6 @@ void initialize_vars(vars_t *varial, char **argv, char **environment);
 unsigned int sig_flag;
 unsigned int flag_error;
 
+void remove_comments(char *line)
 
 #endif /* _SHELL_H_ */

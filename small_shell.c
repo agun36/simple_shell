@@ -111,7 +111,7 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 	}
 	if (is_pipe == 0)
 		_puts("\n");
-	free(var.envi);
+	free_env(var.envi);
 	free(var.buf);
 	exit(var.stat);
 }
