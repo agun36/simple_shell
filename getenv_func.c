@@ -56,7 +56,7 @@ int unset_env(info_t *info, char *env_var)
 }
 
 /**
- * set_environment - Initialize a new environment variable,
+ * _setenv - Initialize a new environment variable,
  *             or modify an existing one
  * @info: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
@@ -64,7 +64,7 @@ int unset_env(info_t *info, char *env_var)
  * @value: the string env var value
  *  Return: 0 on success, 1 on failure
  */
-int _set_env(info_t *info, char *variable, char *value)
+int _setenv(info_t *info, char *variable, char *value)
 {
 	char *buffer = NULL;
 	list_t *node;
