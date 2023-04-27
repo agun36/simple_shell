@@ -150,7 +150,7 @@ int build_history_list(info_t *info, char *buf, int line_count);
 int read_history(info_t *info);
 int write_history(info_t *info);
 char *get_history_file(info_t *info);
-void free_info(info_t *info, int all);
+void free_info(info_t *, int);
 void set_info(info_t *, char **);
 void initialize_info(info_t *info);
 int set_environment_variable(info_t *info, char *variable, char *value);
