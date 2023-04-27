@@ -71,8 +71,8 @@ int change_dir(info_t *info)
 	}
 	else
 	{
-		set_environment(info, "OLDPWD", get_env_var(info, "PWD="));
-		set_environment(info, "PWD", getcwd(buffer, 1024));
+		get_environment(info, "OLDPWD", get_env_var(info, "PWD="));
+		get_environment(info, "PWD", getcwd(buffer, 1024));
 	}
 	return (0);
 }
