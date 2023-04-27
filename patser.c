@@ -63,7 +63,7 @@ char *find_path(info_t *info, char *path_str, char *cmd)
 		fprintf(stderr, "Error: No PATH string provided.\n");
 		return (NULL);
 	}
-	if ((_strlen(cmd) > 2) && starts_with(cmd, "./"))
+	if ((str_length(cmd) > 2) && starts_with(cmd, "./"))
 	{
 		if (is_executable_command(info, cmd))
 		{
@@ -77,12 +77,12 @@ char *find_path(info_t *info, char *path_str, char *cmd)
 			path = duplicate_chars(path_str, current_position, i);
 			if (!*path)
 			{
-				_strcat(path, cmd);
+				_strncat(path, cmd);
 			}
 			else
 			{
-				_strcat(path, "/");
-				_strcat(path, cmd);
+				_strncat(path, "/");
+				_strncat(path, cmd);
 			}
 			if (is_executable_command(info, path))
 				return (path);
