@@ -183,7 +183,7 @@ int print_alias(list_t *node);
 int set_alias(info_t *info, char *alias_str);
 int unset_alias(info_t *info, char *alias_str);
 int print_history(info_t *info);
-void chain_stat(info *info, char *bug, size_t *cur_pos, size_t ist_pos, size_t buf_len);
+void chain_stat(info_t *info, char *bug, size_t *cur_pos, size_t ist_pos, size_t buf_len);
 int print_help(info_t *info);
 int change_dir(info_t *info);
 int exit_shell(info_t *info);
@@ -203,9 +203,6 @@ char *str_duplicate(const char *string);
 void _puts(char *);
 void _memcpy(void *newptr, const void *ptr, unsigned int size);
 int _putchar(char);
-char *_strncpy(char *, char *, int);
-char *_strncat(char *, char *, int);
-char *_strchr(char *, char);
 char *_strchr(char *, char);
 
 #endif
