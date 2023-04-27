@@ -64,7 +64,7 @@ int unset_env(info_t *info, char *env_var)
  * @value: the string env var value
  *  Return: 0 on success, 1 on failure
  */
-int set_environment(info_t *info, char *variable, char *value)
+int _set_env(info_t *info, char *variable, char *value)
 {
 	char *buffer = NULL;
 	list_t *node;
