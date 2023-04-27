@@ -29,7 +29,7 @@ size_t get_list_length(const list_t *head)
 char **list_to_strings(list_t *head)
 {
 	list_t *node = head;
-	size_t i = get_string_length(head), j;
+	size_t i = get_list_length(head), j;
 	char **strs;
 	char *str;
 

@@ -6,7 +6,7 @@
 *
 * Return: integer length of string
 */
-int get_string_length(char *str)
+int _strlen(char *str)
 {
 	int length = 0;
 
@@ -22,7 +22,7 @@ int get_string_length(char *str)
 	return (length);
 }
 /**
-* compare_strings - performs lexicogarphic comparison of two strangs.
+* _strcmp - performs lexicogarphic comparison of two strangs.
 *
 * @str1: the first strang
 *
@@ -30,7 +30,7 @@ int get_string_length(char *str)
 *
 * Return: if str1 < str2, positive if str1 > str2, zero if str1 == str2
 */
-int compare_strings(char *str1, char *str2)
+int _strcmp(char *str1, char *str2)
 {
 	while (*str1 && *str2)
 	{
@@ -53,7 +53,7 @@ int compare_strings(char *str1, char *str2)
 *
 * Return: address of next char of haystack or NULL
 */
-char *string_starts_with(const char *haystack, const char *needle)
+char *starts_with(const char *haystack, const char *needle)
 {
 	while (*needle)
 		if (*needle++ != *haystack++)

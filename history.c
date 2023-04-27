@@ -18,11 +18,11 @@ char *get_history_file(info_t *info)
 
 	if (!home_dir)
 		return (NULL);
-	buf = malloc(sizeof(char) * (str_length(home_dir) + str_length(HIST_FILE) + 2));
+	buf = malloc(sizeof(char) * (_strlen(home_dir) + _strlen(HIST_FILE) + 2));
 	if (!buf)
 		return (NULL);
 	buf[0] = 0;
-	_strncpy(buf, home_dir);
+	_strcpy(buf, home_dir);
 	_strcat(buf, "/");
 	_strcat(buf, HIST_FILE);
 	return (buf);

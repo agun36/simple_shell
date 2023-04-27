@@ -13,7 +13,7 @@ int is_cm(info_t *info, char *file_path)
 	(void)info;
 	if (!file_path || stat(file_path, &st))
 	{
-		fprintf(stderr, "Error: Could not find file path.\n");
+		perror("Could not find file path.\n");
 		return (0);
 	}
 	if (st.st_mode & S_IFREG)
@@ -60,12 +60,12 @@ char *find_path(info_t *info, char *path_str, char *cmd)
 
 	if (!path_str)
 	{
-		fprintf(stderr, "Error: No PATH string provided.\n");
+		perror("No PATH string provided.\n");
 		return (NULL);
 	}
-	if ((str_length(cmd) > 2) && starts_with(cmd, "./"))
+	if ((_strlen(cmd) > 2) && starts_with(cmd, "./"))
 	{
-		if (is_executable_command(info, cmd))
+		if (is_cm(info, cmd))
 		{
 			return (cmd);
 		}
@@ -84,7 +84,7 @@ char *find_path(info_t *info, char *path_str, char *cmd)
 				_strcat(path, "/");
 				_strcat(path, cmd);
 			}
-			if (is_executable_command(info, path))
+			if (is_cm(info, path))
 				return (path);
 			if (!path_str[i])
 				break;
