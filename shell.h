@@ -183,17 +183,13 @@ int print_alias(list_t *node);
 int set_alias(info_t *info, char *alias_str);
 int unset_alias(info_t *info, char *alias_str);
 int print_history(info_t *info);
-
-int print_help(info_t *info)
-
-int change_dir(info_t *info)
-
-int exit_shell(info_t *info)
-
-int string_to_int(char *s)
-
-int is_alphabetic(int c)
-
-int is_delimiter(char c, char *delim)
+chain_stat(info *info, char *bug, size_t *cur_pos, size_t ist_pos, size_t buf_len);
+int print_help(info_t *info);
+int change_dir(info_t *info);
+int exit_shell(info_t *info);
+int string_to_int(char *s);
+int is_alphabetic(int c);
+Is_chain_del(info_t *info, char *buf, size_t *cur_pos);
+int is_delimiter(char c, char *delim);
 int is_interactive(info_t *info);
 #endif
