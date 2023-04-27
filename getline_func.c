@@ -152,7 +152,7 @@ int _getline(info_t *info, char **buffer_ptr, size_t *buffer_length)
 	p = new_p;
 
 	if (str_length)
-		*length = str;
+		*str_length = str;
 	*buffer_ptr = p;
 	return (str);
 }
