@@ -64,6 +64,10 @@ ssize_t get_input(info_t *info)
 	{
 		iterator = buf_index;
 		pointer = buf + buf_index;
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 72620a5d5ee633b1fd719fc6ce593b8d36290993
 		check_chain(info, buf, &iterator, buf_index, buf_leng);
 		while (iterator < buf_leng)
 		{
@@ -77,10 +81,17 @@ ssize_t get_input(info_t *info)
 		{
 			/* reached end of buffer? */
 			buf_index = buf_leng = 0;
+<<<<<<< HEAD
 				info->cmd_buf_type = CMD_NORM;
 		}
 			*buffer_pointer = pointer;
 			return (_strlen(pointer));
+=======
+			info->cmd_buf_type = CMD_NORM
+			}
+		*buffer_pointer = pointer;
+		return (_strlen(pointer));
+>>>>>>> 72620a5d5ee633b1fd719fc6ce593b8d36290993
 	}
 	*buffer_pointer = buf;
 	return (read_bytes);
