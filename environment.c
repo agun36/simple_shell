@@ -69,7 +69,7 @@ int unset_env_var(info_t *info)
 		return (1);
 	}
 	for (i = 1; i <= info->argc; i++)
-		_unsetenv(info, info->argv[i]);
+		unset_env(info, info->argv[i]);
 
 	return (0);
 }
