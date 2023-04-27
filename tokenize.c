@@ -30,10 +30,10 @@ char **strtow(char *input_str, char *del_s)
 	return (NULL);
 	for (i = 0, j = 0; j < num_words; j++)
 	{
-		while (is_del(input_str[i], del_s))
+		while (is_delimiter(input_str[i], del_s))
 			i++;
 		len = 0;
-		while (!is_del(input_str[i + len], del_s) && input_str[i + len])
+		while (!is_delimiter(input_str[i + len], del_s) && input_str[i + len])
 			len++;
 		words[j] = malloc((len + 1) * sizeof(char));
 		if (!words[j])
@@ -43,7 +43,7 @@ char **strtow(char *input_str, char *del_s)
 			free(words);
 			return (NULL);
 		}
-		for (b = 0; b < lein; b++)
+		for (b = 0; b < len; b++)
 			words[j][b] = input_str[i++];
 		words[j][b] = 0;
 	}

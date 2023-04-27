@@ -69,7 +69,7 @@ char *string_starts_with(const char *haystack, const char *needle)
 *
 * Return: pointer to destination buffer
 */
-char *strcat(char *dest, char *src)
+char *_strcat(char *dest, char *src)
 {
 	char *ret = dest;
 

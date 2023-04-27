@@ -1,12 +1,12 @@
 #include <stdlib.h>
 #include "shell.h"
 /**
-* free_pointer - Frees a pointer and sets the address to NULL
+* bfree - Frees a pointer and sets the address to NULL
 * @ptr: Address of the pointer to free
 *
 * Return: 1 if freed, otherwise 0.
 */
-int free_pointer(void **ptr)
+int bfree(void **ptr)
 {
 	if (ptr && *ptr)
 	{
@@ -16,7 +16,6 @@ int free_pointer(void **ptr)
 	}
 	else
 	{
-		fprintf(stderr, "Error: Pointer is NULL\n");
 		return (0);
 	}
 }

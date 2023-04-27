@@ -13,8 +13,8 @@ int hsh(info_t *info, char **av)
 
 	while (read_status != -1 && builtin_ret != -2)
 	{
-		clear_info(info);
-		if (interactive(info))
+		set_info(info);
+		if (is_interactive(info))
 			_puts("$ ");
 		_eputchar(BUF_FLUSH);
 		read_status = get_input(info);
