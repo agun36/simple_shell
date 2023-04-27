@@ -114,7 +114,6 @@ typedef struct builtin
 int is_interactive(info_t *info);
 int replace_string(char **old, char *new);
 int replace_vars(info_t *)
-int replace_variables(info_t *info);
 int replace_alias(info_t *);
 void check_chain_status(info_t *info, char *buf, size_t *current_position, size_t start_position, size_t buffer_length);
 int is_chain_delimiter(info_t *info, char *buf, size_t *current_position);
@@ -123,8 +122,6 @@ char **strtow2(char *, char);
 char *_strcpy(char *dest, char *src);
 int _putchar(char c);
 void print_string(char *str);
-char *duplicate_string(const char *str);
-char *copy_string(char *dest, char *src);
 char *concat_strings(char *dest, char *src);
 char *string_starts_with(const char *haystack, const char *needle);
 int compare_strings(char *str1, char *str2);
