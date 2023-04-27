@@ -25,13 +25,13 @@ int hsh(info_t *info, char **av)
 			if (builtin_ret == -1)
 				find_cmd(info);
 		}
-		else if (interactive(info))
+		else if (is_interactive(info))
 			_putchar('\n');
 		free_info(info, 0);
 	}
 	write_history(info);
 	free_info(info, 1);
-	if (!interactive(info) && info->status)
+	if (!is_interactive(info) && info->status)
 		exit(info->status);
 	if (builtin_ret == -2)
 	{
@@ -106,7 +106,7 @@ void find_cmd(info_t *info)
 	{
 		if ((is_interactive(info) || get_env_var(info, "PATH=")
 			|| info->argv[0][0] == '/') && find_cmd(info, info->argv[0]))
-		fork_cmd(info);
+			fork_cmd(info);
 		else if (*(info->arg) != '\n')
 		{
 			info->status = 150;

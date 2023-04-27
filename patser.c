@@ -77,12 +77,12 @@ char *find_path(info_t *info, char *path_str, char *cmd)
 			path = duplicate_chars(path_str, current_position, i);
 			if (!*path)
 			{
-				_strncat(path, cmd);
+				_strcat(path, cmd);
 			}
 			else
 			{
-				_strncat(path, "/");
-				_strncat(path, cmd);
+				_strcat(path, "/");
+				_strcat(path, cmd);
 			}
 			if (is_executable_command(info, path))
 				return (path);
