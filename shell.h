@@ -208,8 +208,5 @@ int _putchar(char);
 char *_strchr(char *, char);
 int bfree(void **ptr);
 int free_pointer(void **ptr);
-<<<<<<< HEAD
 char _strdup(void **);
-=======
->>>>>>> 9091df68b7a0f1af92ff2ac528c469ae31c989c0
 #endif
