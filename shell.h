@@ -120,7 +120,8 @@ int _strcmp(char *, char *);
 char *starts_with(const char *, const char *);
 char *_strcat(char *, char *);
 int is_cm(info_t *info, char *file_path);
-void check_chain_status(info_t *info, char *buf, size_t *current_position, size_t start_position, size_t buffer_length);
+void chain_stat(info_t *info, char *buf, size_t *cur_pos, size_t ist_pos,
+size_t buf_len);
 int is_chain_delimiter(info_t *info, char *buf, size_t *current_position);
 char **strtow(char *, char *);
 char **strtow2(char *, char);
