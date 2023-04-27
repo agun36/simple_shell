@@ -22,12 +22,12 @@ char *copy_string(char *dest, char *src)
 	return (dest);
 }
 /**
-* duplicate_string - duplicates a string
+* _strdup - duplicates a string
 * @str: the string to duplicate
 *
 * Return: pointer to the duplicated string
 */
-char *duplicate_string(const char *str)
+char *_strdup(const char *str)
 {
 	int length = 0;
 	char *ret;
