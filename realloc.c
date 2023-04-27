@@ -21,12 +21,12 @@ char *memset_fill(char *dest, char fill_byte, unsigned int num_bytes)
 	return (dest);
 }
 /**
-* free_str_arr - frees a string of strings
+* ffree - frees a string of strings
 *
 * @str_arr: string of strings
 *
 */
-void free_str_arr(char **str_arr)
+void ffree(char **str_arr)
 {
 	char **arr_ptr = str_arr;
 
