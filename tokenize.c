@@ -43,7 +43,7 @@ char **strtow(char *input_str, char *del_s)
 			free(words);
 			return (NULL);
 		}
-		for (b = 0; b < k; b++)
+		for (b = 0; b < len; b++)
 			words[j][b] = input_str[i++];
 		words[j][b] = 0;
 	}
@@ -95,7 +95,7 @@ char **strtow2(char *input_str, char del)
 			free(wd);
 			return (NULL);
 		}
-		for (b = 0; b < k; b++)
+		for (b = 0; b < length; b++)
 			wd[j][b] = input_str[i++];
 		wd[j][b] = 0;
 	}
