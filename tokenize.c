@@ -19,8 +19,8 @@ char **strtow(char *input_str, char *del_s)
 		del_s = " ";
 	for (i = 0; input_str[i] != '\0'; i++)
 	{
-		if (!is_del(input_str[i], del_s) &&
-			(is_del(input_str[i + 1], del_s) || !input_str[i + 1]))
+		if (!is_delimiter(input_str[i], del_s) &&
+			(is_delimiter(input_str[i + 1], del_s) || !input_str[i + 1]))
 			num_words++;
 	}
 	if (num_words == 0)
@@ -43,7 +43,7 @@ char **strtow(char *input_str, char *del_s)
 			free(words);
 			return (NULL);
 		}
-		for (b = 0; b < len; b++)
+		for (b = 0; b < lein; b++)
 			words[j][b] = input_str[i++];
 		words[j][b] = 0;
 	}

@@ -7,6 +7,7 @@
 *
 * Return: 0 on success, 1 on error
 */
+
 int main(int arg_count, char **arg_vector)
 {
 	info_t info[] = { INFO_INIT };

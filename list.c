@@ -17,13 +17,11 @@ list_t *add_node(list_t **head, const char *str, int num)
 
 	if (!head)
 	{
-		perror(stderr, "Error: head pointer is NULL\n");
 		return (NULL);
 	}
 	new_head = malloc(sizeof(list_t));
 	if (!new_head)
 	{
-		perror(stderr, "Error: failed to allocate memory for new node\n");
 		return (NULL);
 	}
 	memset((void *)new_head, 0, sizeof(list_t));
@@ -59,7 +57,6 @@ list_t *add_node_end(list_t **head, const char *str, int num)
 
 	if (!head)
 	{
-		perror(stderr, "Error: head pointer is NULL\n");
 		return (NULL);
 	}
 	node = *head;
@@ -67,7 +64,6 @@ list_t *add_node_end(list_t **head, const char *str, int num)
 
 	if (!new_node)
 	{
-		perror(stderr, "Error: failed to allocate memory for new node\n");
 		return (NULL);
 	}
 	memset((void *)new_node, 0, sizeof(list_t));
@@ -133,7 +129,6 @@ int delete_node_at_index(list_t **head, unsigned int index)
 
 	if (!head || !*head)
 	{
-		perror(stderr, "Error: head pointer is NULL\n");
 		return (0);
 	}
 

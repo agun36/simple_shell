@@ -61,7 +61,7 @@ int find_builtin(info_t *info)
 		{"setenv", set_env_var},
 		{"unsetenv", unset_env_var},
 		{"cd", change_dir},
-		{"alias", print_alias}es,
+		{"alias", print_aliases},
 		{NULL, NULL}
 	};
 	for (i = 0; builtintbl[i].type; i++)
@@ -92,11 +92,11 @@ void find_cmd(info_t *info)
 		info->linecount_flag = 0;
 	}
 	for (i = 0; info->arg[i]; i++)
-		if (!is_delim(info->arg[i], " \t\n"))
+		if (!is_delimiter(info->arg[i], " \t\n"))
 			num_args++;
 	if (!num_args)
 		return;
-	path = find_path(info, _getenv(info, "PATH="), info->argv[0]);
+	path = find_path(info, get_env_var(info, "PATH="), info->argv[0]);
 	if (path)
 	{
 		info->path = path;
@@ -104,8 +104,8 @@ void find_cmd(info_t *info)
 	}
 	else
 	{
-		if ((is_interactive(info) || _getenv(info, "PATH=")
-			|| info->argv[0][0] == '/') && is_cmd(info, info->argv[0]))
+		if ((is_interactive(info) || get_env_var(info, "PATH=")
+			|| info->argv[0][0] == '/') && find_cmd(info, info->argv[0]))
 		fork_cmd(info);
 		else if (*(info->arg) != '\n')
 		{
@@ -134,7 +134,7 @@ void fork_cmd(info_t *info)
 	}
 	if (child_pid == 0)
 	{
-		if (execve(info->path, info->argv, get_environ(info)) == -1)
+		if (execve(info->path, info->argv, get_environment(info)) == -1)
 		{
 			free_info(info, 1);
 			if (errno == EACCES)

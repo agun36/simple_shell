@@ -22,9 +22,9 @@ char *get_history_file(info_t *info)
 	if (!buf)
 		return (NULL);
 	buf[0] = 0;
-	_strcpy(buf, home_dir);
-	_strncat(buf, "/");
-	_strncat(buf, HIST_FILE);
+	_strncpy(buf, home_dir);
+	_strcat(buf, "/");
+	_strcat(buf, HIST_FILE);
 	return (buf);
 }
 /**
@@ -141,3 +141,4 @@ int renumber_history(info_t *info)
 	}
 	return (info->histcount = i);
 }
+
