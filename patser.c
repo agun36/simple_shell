@@ -1,12 +1,12 @@
 #include "shell.h"
 /**
-* is_executable_command - determines if a file is an executable command
+* is_executed_command - determines if a file is an executable command
 * @info: the info struct
 * @file_path: path to the file
 *
 * Return: 1 if true, 0 otherwise
 */
-int is_executable_command(info_t *info, char *file_path)
+int is_cm(info_t *info, char *file_path)
 {
 	struct stat st;
 
