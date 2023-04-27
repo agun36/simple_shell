@@ -22,9 +22,11 @@ ssize_t input_buffer(info_t *info, char **buffer, size_t *buffer_length)
 #else
 		read_bytes = _getline(info, buffer, &length_param);
 #endif
-		if (read_bytes > 0) {
-			if ((*buffer)[read_bytes - 1] == '\n') {
-				(*buffer)[read_bytes - 1] = '\0'; // remove trailing newline
+		if (read_bytes > 0)
+		{
+			if ((*buffer)[read_bytes - 1] == '\n')
+			{
+				(*buffer)[read_bytes - 1] = '\0';
 				read_bytes--;
 			}
 			info->linecount_flag = 1;
@@ -62,28 +64,31 @@ ssize_t get_input(info_t *info)
 	if (buffer_length) {	/* we have commands left in the chain buffer */
 		iterator = buffer_index; /* init new iterator to current buffer position */
 		pointer = buffer + buffer_index; /* get pointer for return */
-
 		check_chain(info, buffer, &iterator, buffer_index, buffer_length);
-		while (iterator < buffer_length) { /* iterate to semicolon or end */
-			if (is_chain(info, buffer, &iterator)) {
+		while (iterator < buffer_length) 
+		{ 
+			/* iterate to semicolon or end */
+			if (is_chain(info, buffer, &iterator))
 				break;
-			}
 			iterator++;
 		}
 
 		buffer_index = iterator + 1; /* increment past nulled ';'' */
-		if (buffer_index >= buffer_length) { /* reached end of buffer? */
-			buffer_index = buffer_length = 0; /* reset position and length */
+		if (buffer_index >= buffer_length)
+		{
+			/* reached end of buffer? */
+			buffer_index = buffer_length = 0;
 			info->cmd_buf_type = CMD_NORM;
 		}
 
-		*buffer_pointer = pointer; /* pass back pointer to current command position */
-		return (_strlen(pointer)); /* return length of current command */
+		*buffer_pointer = pointer;
+		return (_strlen(pointer));
 	}
 
-	*buffer_pointer = buffer; /* else not a chain, pass back buffer from _getline() */
-	return (read_bytes); /* return length of buffer from _getline() */
+	*buffer_pointer = buffer;
+	return (read_bytes);
 }
+
 /**
  * read_buffer - reads a buffer
  * @info: parameter struct
@@ -96,15 +101,12 @@ ssize_t read_buffer(info_t *info, char *buffer, size_t *buffer_size)
 {
 	ssize_t read_status = 0;
 
-	if (*buffer_size) {
+	if (*buffer_size)
 		return (0);
-	}
 
 	read_status = read(info->readfd, buffer, READ_BUF_SIZE);
-	if (read_status >= 0) {
+	if (read_status >= 0)
 		*buffer_size = read_status;
-	}
-
 	return (read_status);
 }
 
@@ -125,30 +127,30 @@ int get_line(info_t *info, char **buffer_ptr, size_t *buffer_length)
 	char *buffer = NULL, *new_buffer = NULL, *new_line_char;
 
 	buffer = *buffer_ptr;
-	if (buffer && buffer_length) {
+	if (buffer && buffer_length)
 		buffer_length_status = *buffer_length;
-	}
-
-	if (buf_index == buf_len) {
+	if (buf_index == buf_len)
 		buf_index = buf_len = 0;
-	}
-
 	read_status = read_buffer(info, buf, &buf_len);
-	if (read_status == -1 || (read_status == 0 && buf_len == 0)) {
+	if (read_status == -1 || (read_status == 0 && buf_len == 0))
 		return (-1);
-	}
 
 	new_line_char = _strchr(buf + buf_index, '\n');
 	line_len = new_line_char ? 1 + (unsigned int)(new_line_char - buf) : buf_len;
 	new_buffer = _realloc(buffer, buffer_length_status, buffer_length_status ? buffer_length_status + line_len : line_len + 1);
-	if (!new_buffer) { /* MALLOC FAILURE! */
+	if (!new_buffer)
+	{ 
+		/* MALLOC FAILURE! */
 		fprintf(stderr, "Malloc failed!\n");
 		return (buffer ? free(buffer), -1 : -1);
 	}
 
-	if (buffer_length_status) {
+	if (buffer_length_status)
+	{
 		_strncat(new_buffer, buf + buf_index, line_len - buf_index);
-	} else {
+	} 
+	else
+	{
 		_strncpy(new_buffer, buf + buf_index, line_len - buf_index + 1);
 	}
 
@@ -156,15 +158,14 @@ int get_line(info_t *info, char **buffer_ptr, size_t *buffer_length)
 	buf_index = line_len;
 	buffer = new_buffer;
 
-	if (buffer_length) {
+	if (buffer_length)
 		*buffer_length = buffer_length_status;
-	}
 	*buffer_ptr = buffer;
 	return (buffer_length_status);
 }
 
 /**
- * sigintHandler - Handles SIGINT signal (Ctrl+C)
+ * handle_sigint - Handles SIGINT signal (Ctrl+C)
  * @signal_number: The signal number
  *
  * Return: void
