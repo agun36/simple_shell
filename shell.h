@@ -213,5 +213,6 @@ int _putchar(char);
 char *_strchr(char *, char);
 int bfree(void **ptr);
 int free_pointer(void **ptr);
+void ffree(char **);
 char *_strdup(const char *);
 #endif
