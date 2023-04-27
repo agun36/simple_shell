@@ -51,7 +51,7 @@ ssize_t input_buffer(info_t *info, char **buffer, size_t *buffer_length)
  */
 ssize_t get_input(info_t *info)
 {
-	static char *buf; /* the ';' command chain buffer */
+	static char *buf;
 	static size_t buf_index, iterator, buf_leng;
 	ssize_t read_bytes = 0;
 	char **buf_ptr = &(info->arg), *pointer;
@@ -64,7 +64,6 @@ ssize_t get_input(info_t *info)
 	{
 		iterator = buf_index;
 		pointer = buf + buf_index;
-		
 		check_chain(info, buf, &iterator, buf_index, buf_leng);
 		while (iterator < buf_leng)
 		{
@@ -78,6 +77,10 @@ ssize_t get_input(info_t *info)
 		{
 			/* reached end of buffer? */
 			buf_index = buf_leng = 0;
+				info->cmd_buf_type = CMD_NORM;
+		}
+			*buffer_pointer = pointer;
+			return (_strlen(pointer));
 			info->cmd_buf_type = CMD_NORM
 			}
 		*buffer_pointer = pointer;
@@ -156,12 +159,12 @@ int get_line(info_t *info, char **buffer_ptr, size_t *buffer_length)
 }
 
 /**
- * handle_sigint - Handles SIGINT signal (Ctrl+C)
- * @signal_number: The signal number
+ * sigintHandler - Handles SIGINT signal (Ctrl+C)
+ * @sig_num: The signal number
  *
  * Return: void
  */
-void handle_sigint(int signal_number)
+void sigintHandler(__attribute__((unused))int sig_num)
 {
 	_puts("\n");
 	_puts("$ ");
