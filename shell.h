@@ -199,6 +199,7 @@ int _strcmp(char *, char *);
 char *starts_with(const char *, const char *);
 char *str_concat(char *dest, char *src);
 char *_strcpy(char *, char *);
+char *_strdup(const char *str)
 char *str_duplicate(const char *string);
 void _puts(char *);
 void _memcpy(void *newptr, const void *ptr, unsigned int size);
