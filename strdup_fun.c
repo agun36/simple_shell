@@ -9,7 +9,7 @@
  * Return: On success, a ptr to the duplicated string is returned. On failure,
  * NULL is returned.
  */
-char *_strdup(const char *str)
+int *_strdup(void **str)
 {
 	size_t len = strlen(str) + 1;
 	char *new_str = malloc(len);

@@ -203,6 +203,7 @@ void _puts(char *);
 void _memcpy(void *newptr, const void *ptr, unsigned int size);
 int _putchar(char);
 char *_strchr(char *, char);
-int bfree(void **);
-char *_strdup(void);:
+int bfree(void **ptr);
+int free_pointer(void **ptr);
+int _strdup(void **ptr);
 #endif
