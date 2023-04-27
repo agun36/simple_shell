@@ -45,7 +45,7 @@ int change_dir(info_t *info)
 		_puts("Error: getcwd failed\n");
 	if (!info->argv[1])
 	{
-		dir = _getenv(info, "HOME=");
+		dir = get_env_var(info, "HOME=");
 		if (!dir)
 			chdir_ret = chdir((dir = _getenv(info, "PWD=")) ? dir : "/");
 		else
