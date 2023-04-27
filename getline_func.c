@@ -86,8 +86,8 @@ ssize_t get_input(info_t *info)
 		*buffer_pointer = pointer;
 		return (_strlen(pointer));
 	}
-	*buffer_pointer = buf;
-	return (read_bytes);
+*buffer_pointer = buf;
+return (read_bytes);
 }
 
 /**
@@ -132,7 +132,7 @@ int get_line(info_t *info, char **buffer_ptr, size_t *buffer_length)
 	if (i == len)
 		i = len = 0;
 
-	r = read_buf(info, buf, &len);
+	r = read_buffer(info, buf, &len);
 	if (r == -1 || (r == 0 && len == 0))
 		return (-1);
 
