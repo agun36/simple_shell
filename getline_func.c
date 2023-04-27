@@ -79,12 +79,11 @@ ssize_t get_input(info_t *info)
 			buf_index = buf_leng = 0;
 			info->cmd_buf_type = CMD_NORM;
 		}
+		*buf_ptr = pointer;
+		return (_strlen(pointer));
 	}
-	*buf_ptr = pointer;
-	return (_strlen(pointer));
-	}
-*buf_ptr = buf;
-return (read_bytes);
+	*buf_ptr = buf;
+	return (read_bytes);
 }
 
 /**
