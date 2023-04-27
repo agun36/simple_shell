@@ -14,7 +14,7 @@ char *get_history_file(info_t *info)
 {
 	char *buf, *home_dir;
 
-	home_dir = _getenv(info, "HOME=");
+	home_dir = get_env_var(info, "HOME=");
 
 	if (!home_dir)
 		return (NULL);

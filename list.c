@@ -17,13 +17,13 @@ list_t *add_node(list_t **head, const char *str, int num)
 
 	if (!head)
 	{
-		fprintf(stderr, "Error: head pointer is NULL\n");
+		perror(stderr, "Error: head pointer is NULL\n");
 		return (NULL);
 	}
 	new_head = malloc(sizeof(list_t));
 	if (!new_head)
 	{
-		fprintf(stderr, "Error: failed to allocate memory for new node\n");
+		perror(stderr, "Error: failed to allocate memory for new node\n");
 		return (NULL);
 	}
 	memset((void *)new_head, 0, sizeof(list_t));
@@ -33,7 +33,6 @@ list_t *add_node(list_t **head, const char *str, int num)
 		new_head->str = strdup(str);
 		if (!new_head->str)
 		{
-			fprintf(stderr, "Error\n");
 			free(new_head);
 			return (NULL);
 		}
@@ -60,7 +59,7 @@ list_t *add_node_end(list_t **head, const char *str, int num)
 
 	if (!head)
 	{
-		fprintf(stderr, "Error: head pointer is NULL\n");
+		perror(stderr, "Error: head pointer is NULL\n");
 		return (NULL);
 	}
 	node = *head;
@@ -68,7 +67,7 @@ list_t *add_node_end(list_t **head, const char *str, int num)
 
 	if (!new_node)
 	{
-		fprintf(stderr, "Error: failed to allocate memory for new node\n");
+		perror(stderr, "Error: failed to allocate memory for new node\n");
 		return (NULL);
 	}
 	memset((void *)new_node, 0, sizeof(list_t));
@@ -80,7 +79,6 @@ list_t *add_node_end(list_t **head, const char *str, int num)
 
 		if (!new_node->str)
 		{
-			fprintf(stderr, "Error: failed to duplicate string\n");
 			free(new_node);
 			return (NULL);
 		}
@@ -135,7 +133,7 @@ int delete_node_at_index(list_t **head, unsigned int index)
 
 	if (!head || !*head)
 	{
-		fprintf(stderr, "Error: head pointer is NULL\n");
+		perror(stderr, "Error: head pointer is NULL\n");
 		return (0);
 	}
 

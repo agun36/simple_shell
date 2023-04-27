@@ -110,7 +110,7 @@ int replace_alias(info_t *info)
 */
 int replace_variables(info_t *info)
 {
-	int b = 0;
+	int b;
 	list_t *node;
 
 	for (b = 0; info->argv[b]; b++)
@@ -150,6 +150,7 @@ int replace_variables(info_t *info)
 int replace_string(char **old, char *new)
 {
 	free(*old);
+
 	*old = new;
 	return (1);
 }
