@@ -10,7 +10,7 @@
 */
 char **strtow(char *input_str, char *del_s)
 {
-	int i, j, len, num_words = 0;
+	int i, j, len, b, num_words = 0;
 	char **words;
 
 	if (input_str == NULL || input_str[0] == 0)
@@ -43,9 +43,9 @@ char **strtow(char *input_str, char *del_s)
 			free(words);
 			return (NULL);
 		}
-		for (len = 0; len < k; len++)
-			words[j][len] = input_str[i++];
-		words[j][len] = 0;
+		for (b = 0; b < k; b++)
+			words[j][b] = input_str[i++];
+		words[j][b] = 0;
 	}
 	words[j] = NULL;
 	return (words);
@@ -61,7 +61,7 @@ char **strtow(char *input_str, char *del_s)
 */
 char **strtow2(char *input_str, char del)
 {
-	int i, j, length, num_wd = 0;
+	int i, j, length, b, num_wd = 0;
 	char **wd;
 
 	if (input_str == NULL || input_str[0] == 0)
@@ -76,7 +76,7 @@ char **strtow2(char *input_str, char del)
 	}
 	if (num_wd == 0)
 		return (NULL);
-	words = malloc(1 + num_wd) * sizeof(char *));
+	wd = malloc((1 + num_wd) * sizeof(char *));
 	if (!wd)
 		return (NULL);
 	for (i = 0, j = 0; j < num_wd; j++)
@@ -95,9 +95,9 @@ char **strtow2(char *input_str, char del)
 			free(wd);
 			return (NULL);
 		}
-		for (length = 0; length < k; length++)
-			wd[j][length] = input_str[i++];
-		wd[j][length] = 0;
+		for (b = 0; b < k; b++)
+			wd[j][b] = input_str[i++];
+		wd[j][b] = 0;
 	}
 	wd[j] = NULL;
 	return (wd);
