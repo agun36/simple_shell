@@ -10,7 +10,8 @@ void _eputs(char *str)
 {
 	int i = 0;
 
-	if (!str) {
+	if (!str)
+	{
 		fprintf(stderr, "Error: _eputs() called with NULL string\n");
 		return;
 	}
@@ -77,7 +78,8 @@ int _putsfd(char *str, int fd)
 {
 	int char_count = 0;
 
-	if (!str) {
+	if (!str)
+	{
 		fprintf(stderr, "Error: _putsfd() called with NULL string\n");
 		return (0);
 	}
