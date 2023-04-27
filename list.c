@@ -173,6 +173,7 @@ void free_list(list_t **head_ptr)
 
 	if (!head_ptr || !*head_ptr)
 		return;
+
 	head = *head_ptr;
 	node = head;
 
