@@ -8,9 +8,9 @@
  *
  * Return: The copied string
  */
-char *_strncpy(char *dest, const char *src, size_t n)
+char *_strncpy(char *dest, char *src, int n)
 {
-	size_t i;
+	int  i;
 
 	for (i = 0; i < n && src[i] != '\0'; i++)
 		dest[i] = src[i];
@@ -28,10 +28,10 @@ char *_strncpy(char *dest, const char *src, size_t n)
  *
  * Return: The concatenated string
  */
-char *_strncat(char *dest, const char *src, size_t n)
+char *_strncat(char *dest, char *src, int n)
 {
-	size_t dest_len = strlen(dest);
-	size_t i;
+	char dest_len = strlen(dest);
+	int i;
 
 	for (i = 0; i < n && src[i] != '\0'; i++)
 		dest[dest_len + i] = src[i];
@@ -47,7 +47,7 @@ char *_strncat(char *dest, const char *src, size_t n)
  *
  * Return: A pointer to the memory area s
  */
-char *_strchr(const char *s, int c)
+char *_strchr(char *s, char c)
 {
 	while (*s != (char)c)
 	{
