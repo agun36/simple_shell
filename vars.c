@@ -103,12 +103,12 @@ int replace_alias(info_t *info)
 	return (1);
 }
 /**
-* replace_variables - replaces vars in the tokenized string
+* replace_vars - replaces vars in the tokenized string
 * @info: the parameter struct
 *
 * Return: 1 if replaced, 0 otherwise
 */
-int replace_variables(info_t *info)
+int replace_vars(info_t *)
 {
 	int b;
 	list_t *node;

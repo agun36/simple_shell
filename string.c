@@ -61,7 +61,7 @@ char *string_starts_with(const char *haystack, const char *needle)
 	return ((char *)haystack);
 }
 /**
-* concat_strings - concatenates two strings
+* _strcat - concatenates two strings
 *
 * @dest: the destination buffer
 *
@@ -69,7 +69,7 @@ char *string_starts_with(const char *haystack, const char *needle)
 *
 * Return: pointer to destination buffer
 */
-char *concat_strings(char *dest, char *src)
+char *strcat(char *dest, char *src)
 {
 	char *ret = dest;
 
