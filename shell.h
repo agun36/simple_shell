@@ -112,7 +112,7 @@ typedef struct builtin
 
 
 int is_interactive(info_t *info);
-int replace_string(char **old, char *new);
+int replace_string(char **, char *);
 int replace_vars(info_t *info);
 int replace_alias(info_t *);
 void check_chain_status(info_t *info, char *buf, size_t *current_position, size_t start_position, size_t buffer_length);
