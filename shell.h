@@ -172,7 +172,6 @@ ssize_t get_input(info_t *info);
 ssize_t input_buffer(info_t *info, char **buffer, size_t *buffer_length);
 char *_strcat(char *, char *);
 char *_strncpy(char *dest, char *src, int n);
-char *_strchr(char *s, char c);
 char *_strncat(char *dest, char *src, int n);
 void remove_comments(char *buf);
 char *convert_number(long int num, int base, int flags);
