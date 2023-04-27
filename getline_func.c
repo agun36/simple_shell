@@ -57,7 +57,7 @@ ssize_t get_input(info_t *info)
 	char **buf_ptr = &(info->arg), *pointer;
 
 	_putchar(BUF_FLUSH);
-	read_bytes = input_buf(info, &buf, &buf_leng);
+	read_bytes = input_buffer(info, &buf, &buf_leng);
 	if (read_bytes == -1)
 		return (-1);
 	if (buf_leng)
