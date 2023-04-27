@@ -3,8 +3,11 @@
 #include <string.h>
 /**
 * memset_fill - fills memory with a constant byte
+*
 * @dest: the pointer to the memory area
+*
 * @fill_byte: the byte to fill *dest with
+*
 * @num_bytes: the amount of bytes to be filled
 *
 * Return: (dest) a pointer to the memory area dest
@@ -19,7 +22,9 @@ char *memset_fill(char *dest, char fill_byte, unsigned int num_bytes)
 }
 /**
 * free_str_arr - frees a string of strings
+*
 * @str_arr: string of strings
+*
 */
 void free_str_arr(char **str_arr)
 {
@@ -33,8 +38,11 @@ void free_str_arr(char **str_arr)
 }
 /**
 * realloc_mem - reallocates a block of memory
+*
 * @ptr: pointer to previous malloc'ated block
+*
 * @old_size: byte size of previous block
+*
 * @new_size: byte size of new block
 *
 * Return: pointer to da ol'block nameen.

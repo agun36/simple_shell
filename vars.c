@@ -1,15 +1,18 @@
 #include "shell.h"
 /**
-* is_chain_delimiter - test if current char in buffer is a chain delimeter
+* is_chain_del - test if current char in buffer is a chain delimeter
+*
 * @info: the parameter struct
+*
 * @buf: the char buffer
-* @current_position: address of current position in buf
+*
+* @cur_pos: address of current position in buf
 *
 * Return: 1 if chain delimeter, 0 otherwise
 */
-int is_chain_delimiter(info_t *info, char *buf, size_t *current_position)
+int is_chain_del(info_t *info, char *buf, size_t *cur_pos)
 {
-	size_t j = *current_position;
+	size_t j = *cur_pos;
 
 	if (buf[j] == '|' && buf[j + 1] == '|')
 	{
@@ -30,41 +33,46 @@ int is_chain_delimiter(info_t *info, char *buf, size_t *current_position)
 	}
 	else
 	return (0);
-	*current_position = j;
+	*cur_pos = j;
 	return (1);
 }
 /**
-* check_chain_status - checks we should continue chaining based on last status
+* chain_status - checks we should continue chaining based on last status
+*
 * @info: the parameter struct
+*
 * @buf: the char buffer
-* @current_position: address of current position in buf
-* @start_position: starting position in buf
-* @buffer_length: length of buf
+*
+* @cur_pos: address of current position in buf
+*
+* @ist_pos: starting position in buf
+*
+* @buf_len: length of buf
 *
 * Return: Void
 */
-void check_chain_status(info_t *info, char *buf, size_t *current_position, size_t start_position,
-size_t buffer_length)
+void chain_stat(info_t *info, char *buf, size_t *cur_pos, size_t ist_pos,
+size_t buf_len)
 {
-	size_t j = *current_position;
+	size_t j = *cur_pos;
 
 	if (info->cmd_buf_type == CMD_AND)
 	{
 		if (info->status)
 		{
-			buf[start_position] = 0;
-			j = buffer_length;
+			buf[ist_pos] = 0;
+			j = buf_len;
 		}
 	}
 	if (info->cmd_buf_type == CMD_OR)
 	{
 		if (!info->status)
 		{
-			buf[start_position] = 0;
-			j = buffer_length;
+			buf[ist_pos] = 0;
+			j = buf_len;
 		}
 	}
-	*current_position = j;
+	*cur_pos = j;
 }
 /**
 * replace_alias - replaces an aliases in the tokenized string
