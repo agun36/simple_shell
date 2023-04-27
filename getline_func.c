@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * input_buf - buffers chained commands
+ * input_buffer - buffers chained commands
  * @info: parameter struct
  * @buffer: address of buffer
  * @buffer_length: address of len var
@@ -104,7 +104,6 @@ ssize_t read_buffer(info_t *info, char *buffer, size_t *buffer_size)
 
 	if (*buffer_size)
 		return (0);
-
 	read_status = read(info->readfd, buffer, READ_BUF_SIZE);
 	if (read_status >= 0)
 		*buffer_size = read_status;
