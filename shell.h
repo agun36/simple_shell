@@ -120,7 +120,9 @@ void check_chain_status(info_t *info, char *buf, size_t *current_position, size_
 int is_chain_delimiter(info_t *info, char *buf, size_t *current_position);
 char **strtow2(char *input_string, char delimiter);
 char **strtow(char *input_string, char *delimiter_string);
+char *_strcpy(char *dest, char *src);
 int _putchar(char c);
+void _puts(char *str);
 void print_string(char *str);
 char *duplicate_string(const char *str);
 char *copy_string(char *dest, char *src);
