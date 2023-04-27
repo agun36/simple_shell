@@ -4,7 +4,7 @@
  * clear_info - Initializes info_t struct
  * @info: Struct address
  */
-void initialize_info(info_t *info)
+void clear_info(info_t *info)
 {
 	info->arg = NULL;
 	info->argv = NULL;
@@ -27,7 +27,6 @@ void set_info(info_t *, char **)
 		info->argv = strtow(info->arg, " \t");
 		if (!info->argv)
 		{
-			fprintf(stderr, "Error: Failed to allocate memory for argv\n");
 			info->argv = malloc(sizeof(char *) * 2);
 			if (info->argv)
 			{
