@@ -68,7 +68,7 @@ ssize_t get_input(info_t *info)
 		while (iterator < buf_leng)
 		{
 			/* iterate to semicolon or end */
-			if (is_chain(info, buf, &iterator))
+			if (is_chain_del(info, buf, &iterator))
 				break;
 			iterator++;
 		}
@@ -79,7 +79,7 @@ ssize_t get_input(info_t *info)
 			buf_index = buf_leng = 0;
 				info->cmd_buf_type = CMD_NORM;
 		}
-			*buffer_pointer = pointer;
+			*free_pointer = pointer;
 			return (_strlen(pointer));
 			info->cmd_buf_type = CMD_NORM
 			}

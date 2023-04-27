@@ -205,5 +205,5 @@ int _putchar(char);
 char *_strchr(char *, char);
 int bfree(void **ptr);
 int free_pointer(void **ptr);
-int _strdup(void **ptr);
+char _strdup(void **);
 #endif
