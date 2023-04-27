@@ -194,4 +194,17 @@ int is_delimiter(char c, char *delim);
 int is_interactive(info_t *info);
 char **strtow2(char *input_str, char del);
 char **strtow(char *input_str, char *del_s);
+int str_length(const char *string);
+int _strcmp(char *, char *);
+char *starts_with(const char *, const char *);
+char *str_concat(char *dest, char *src);
+char *_strcpy(char *, char *);
+char *str_duplicate(const char *string);
+void _puts(char *);
+void _memcpy(void *newptr, const void *ptr, unsigned int size);
+int _putchar(char);
+char *_strncpy(char *, char *, int);
+char *_strncat(char *, char *, int);
+char *_strchr(char *, char);
+
 #endif
