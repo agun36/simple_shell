@@ -161,7 +161,7 @@ char *get_history_file(info_t *info);
 void free_info(info_t *, int);
 void set_info(info_t *, char **);
 void initialize_info(info_t *info);
-int _setenv(info_t *info, char *var, char *value);
+int _set_env(info_t *info, char *variable, char *value);
 int unset_env(info_t *info, char *env_var);
 char **get_environment(info_t *info);
 void handle_sigint(int signal_number);
