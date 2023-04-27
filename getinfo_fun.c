@@ -17,7 +17,7 @@ void initialize_info(info_t *info)
  * @info: Struct address
  * @av: Argument vector
  */
-void set_info(info_t *info, char **av)
+void set_info(info_t *, char **)
 {
 	int i = 0;
 
@@ -49,7 +49,7 @@ void set_info(info_t *info, char **av)
  * @info: Struct address
  * @all: True if freeing all fields
  */
-void free_info(info_t *info, int all)
+void free_info(info_t *, int)
 {
 	ffree(info->argv);
 	info->argv = NULL;
