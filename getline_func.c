@@ -13,7 +13,9 @@ ssize_t input_buffer(info_t *info, char **buffer, size_t *buffer_length)
 	ssize_t read_bytes = 0;
 	size_t length_param = 0;
 
-	if (!*buffer_length) { // if nothing left in the buffer, fill it
+	if (!*buffer_length)
+	{ 
+		// if nothing left in the buffer, fill it
 		free(*buffer);
 		*buffer = NULL;
 		signal(SIGINT, sigintHandler);
@@ -57,11 +59,15 @@ ssize_t get_input(info_t *info)
 
 	_putchar(BUF_FLUSH);
 	read_bytes = input_buf(info, &buffer, &buffer_length);
-	if (read_bytes == -1) { /* EOF */
+	if (read_bytes == -1)
+	{ 
+		/* EOF */
 		log_message("Reached end of file");
 		return (-1);
 	}
-	if (buffer_length) {	/* we have commands left in the chain buffer */
+	if (buffer_length)
+	{
+		/* we have commands left in the chain buffer */
 		iterator = buffer_index; /* init new iterator to current buffer position */
 		pointer = buffer + buffer_index; /* get pointer for return */
 		check_chain(info, buffer, &iterator, buffer_index, buffer_length);
@@ -170,7 +176,8 @@ int get_line(info_t *info, char **buffer_ptr, size_t *buffer_length)
  *
  * Return: void
  */
-void handle_sigint(int signal_number) {
+void handle_sigint(int signal_number)
+{
     printf("\n");
     printf("$ ");
     fflush(stdout);
