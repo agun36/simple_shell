@@ -64,36 +64,28 @@ ssize_t get_input(info_t *info)
 	{
 		iterator = buf_index;
 		pointer = buf + buf_index;
-
+		
 		check_chain(info, buf, &iterator, buf_index, buf_leng);
 		while (iterator < buf_leng)
 		{
-			/* we have commands left in the chain buffer */
-			iterator = buf_index;
-			pointer = buf + buf_index;
-			
-			check_chain(info, buf, &iterator, buf_index, buf_leng);
-			while (iterator < buf_leng)
-			{
-				/* iterate to semicolon or end */
-				if (is_chain(info, buf, &iterator))
-					break;
-				iterator++;
-			}
-
-			buf_index = iterator + 1;
-			if (buf_index >= buf_leng)
-			{
-				/* reached end of buffer? */
-				buf_index = buf_leng = 0;
-				info->cmd_buf_type = CMD_NORM
-			}
-			*buffer_pointer = pointer;
-			return (_strlen(pointer));
+			/* iterate to semicolon or end */
+			if (is_chain(info, buf, &iterator))
+				break;
+			iterator++;
 		}
-		*buffer_pointer = buf;
-		return (read_bytes);
+		buf_index = iterator + 1;
+		if (buf_index >= buf_leng)
+		{
+			/* reached end of buffer? */
+			buf_index = buf_leng = 0;
+			info->cmd_buf_type = CMD_NORM
+			}
+		*buffer_pointer = pointer;
+		return (_strlen(pointer));
 	}
+	*buffer_pointer = buf;
+	return (read_bytes);
+}
 
 /**
  * read_buffer - reads a buffer
