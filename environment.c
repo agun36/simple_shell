@@ -71,7 +71,7 @@ int set_env_var(info_t *info)
 		_eputs("Incorrect number of arguements\n");
 		return (1);
 	}
-	if (_setenv(info, info->argv[1], info->argv[2]))
+	if (set_environment(info, info->argv[1], info->argv[2]))
 		return (0);
 	return (1);
 }
