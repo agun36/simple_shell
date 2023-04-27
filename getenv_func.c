@@ -56,7 +56,7 @@ int unset_env(info_t *info, char *env_var)
 }
 
 /**
- * set_environment_variable - Initialize a new environment variable,
+ * set_environment - Initialize a new environment variable,
  *             or modify an existing one
  * @info: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
