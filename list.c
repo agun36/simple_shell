@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
 * add_node - adds a node to the start of the list
 *
@@ -41,6 +42,7 @@ list_t *add_node(list_t **head, const char *str, int num)
 	*head = new_head;
 	return (new_head);
 }
+
 /**
 * add_node_end - adds a node to the end of the list
 *
@@ -95,6 +97,7 @@ list_t *add_node_end(list_t **head, const char *str, int num)
 	}
 	return (new_node);
 }
+
 /**
 * print_list_str - prints only the str element of a list_t linked list
 *
@@ -115,6 +118,7 @@ size_t print_list_str(const list_t *head)
 	}
 	return (i);
 }
+
 /**
 * delete_node_at_index - deletes node at given index
 *
@@ -160,6 +164,7 @@ int delete_node_at_index(list_t **head, unsigned int index)
 	}
 	return (0);
 }
+
 /**
 * free_list - frees all nodes of a list
 *

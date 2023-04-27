@@ -126,7 +126,7 @@ char *copy_string(char *dest, char *src);
 char *concat_strings(char *dest, char *src);
 char *string_starts_with(const char *haystack, const char *needle);
 int compare_strings(char *str1, char *str2);
-int get_string_length(char *str):
+int get_string_length(char *str);
 void fork_cmd(info_t *info);
 void find_cmd(info_t *info);
 int find_builtin(info_t *info);
@@ -182,17 +182,16 @@ int print_aliases(info_t *info);
 int print_alias(list_t *node);
 int set_alias(info_t *info, char *alias_str);
 int unset_alias(info_t *info, char *alias_str);
-int print_history(info_t *info)
-
-int print_help(info_t *info)
-
-int change_dir(info_t *info)
-
-int exit_shell(info_t *info)
-
-int string_to_int(char *s)
-
-int is_alphabetic(int c)
-
-int is_delimiter(char c, char *delim)
+int print_history(info_t *info);
+chain_stat(info *info, char *bug, size_t *cur_pos, size_t ist_pos, size_t buf_len);
+int print_help(info_t *info);
+int change_dir(info_t *info);
+int exit_shell(info_t *info);
+int string_to_int(char *s);
+int is_alphabetic(int c);
+Is_chain_del(info_t *info, char *buf, size_t *cur_pos);
+int is_delimiter(char c, char *delim);
 int is_interactive(info_t *info);
+[4/27, 09:13] Software Engineering: Char **strtow2(char *input_str, char del);
+[4/27, 09:13] Software Engineering: Char **strtow(char *input_str, char *del_s);
+#endif

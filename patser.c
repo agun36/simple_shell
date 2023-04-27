@@ -79,18 +79,15 @@ char *find_path(info_t *info, char *path_str, char *cmd)
 			{
 				_strcat(path, cmd);
 			}
-			else{
+			else
+			{
 				_strcat(path, "/");
 				_strcat(path, cmd);
 			}
 			if (is_executable_command(info, path))
-			{
 				return (path);
-			}
 			if (!path_str[i])
-			{
 				break;
-			}
 			current_position = i;
 		}
 		i++;

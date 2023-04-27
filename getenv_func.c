@@ -1,4 +1,4 @@
-#include “shell.h”
+#include "shell.h"
 
 /**
  * get_environment - returns a copy of the environment string array
@@ -20,12 +20,12 @@ char **get_environment(info_t *info)
 
 /**
  * unset_env - Remove an environment variable
- * 
+ *
  * @info: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
- * 
+ *
  * Return: 1 on delete, 0 otherwise
- * 
+ *
  * @env_var: the string env var property
  */
 int unset_env(info_t *info, char *env_var)
@@ -34,7 +34,8 @@ int unset_env(info_t *info, char *env_var)
 	size_t index = 0;
 	char *env_var_value;
 
-	if (!node || !env_var) {
+	if (!node || !env_var)
+	{
 		fprintf(stderr, "Error: invalid arguments passed to unset_env\n");
 		return (0);
 	}
@@ -70,13 +71,15 @@ int set_environment_variable(info_t *info, char *variable, char *value)
 	list_t *node;
 	char *p;
 
-	if (!variable || !value) {
+	if (!variable || !value)
+	{
 		printf("Error: variable or value is NULL\n");
 		return (1);
 	}
 
 	buffer = malloc(_strlen(variable) + _strlen(value) + 2);
-	if (!buffer) {
+	if (!buffer)
+	{
 		printf("Error: failed to allocate memory for buffer\n");
 		return (1);
 	}
