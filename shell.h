@@ -151,7 +151,7 @@ int read_history(info_t *info);
 int write_history(info_t *info);
 char *get_history_file(info_t *info);
 void free_info(info_t *info, int all);
-void set_info(info_t *info, char **av);
+void set_info(info_t *, char **);
 void initialize_info(info_t *info);
 int set_environment_variable(info_t *info, char *variable, char *value);
 int unset_env(info_t *info, char *env_var);
