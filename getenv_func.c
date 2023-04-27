@@ -11,7 +11,6 @@ char **get_environment(info_t *info)
 	if (!info->environ || info->env_changed)
 	{
 		info->environ = list_to_strings(info->env);
-		log_info("Environment changed, updating environment string array");
 		info->env_changed = 0;
 	}
 
@@ -65,7 +64,7 @@ int unset_env(info_t *info, char *env_var)
  * @value: the string env var value
  *  Return: 0 on success, 1 on failure
  */
-int set_environment_variable(info_t *info, char *variable, char *value)
+int set_environment(info_t *info, char *variable, char *value)
 {
 	char *buffer = NULL;
 	list_t *node;
