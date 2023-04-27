@@ -77,14 +77,13 @@ ssize_t get_input(info_t *info)
 		{
 			/* reached end of buffer? */
 			buf_index = buf_leng = 0;
-				info->cmd_buf_type = CMD_NORM;
+			info->cmd_buf_type = CMD_NORM;
 		}
-			*free_pointer = pointer;
-			return (_strlen(pointer));
-			info->cmd_buf_type = CMD_NORM
-			}
-		*buffer_pointer = pointer;
+		*free_pointer = pointer;
 		return (_strlen(pointer));
+	}
+	*buffer_pointer = pointer;
+	return (_strlen(pointer));
 	}
 *buffer_pointer = buf;
 return (read_bytes);
@@ -138,7 +137,7 @@ int _getline(info_t *info, char **buffer_ptr, size_t *buffer_length)
 
 	c = _strchr(buf + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : len;
-	new_p = _realloc(p, str, str ? str + k : k + 1);
+	new_p = realloc_mem(p, str, str ? str + k : k + 1);
 	if (!new_p) /* MALLOC FAILURE! */
 		return (p ? free(p), -1 : -1);
 
