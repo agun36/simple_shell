@@ -17,7 +17,7 @@ void clear_info(info_t *info)
  * @info: Struct address
  * @av: Argument vector
  */
-void set_info(info_t *, char **)
+void set_info(info_t *info, char **av)
 {
 	int i = 0;
 
@@ -50,7 +50,7 @@ void set_info(info_t *, char **)
  */
 void free_info(info_t *info, int all)
 {
-	dfree(info->argv);
+	bfree(info->argv);
 	info->argv = NULL;
 	info->path = NULL;
 	if (all)
@@ -63,7 +63,7 @@ void free_info(info_t *info, int all)
 			free_list(&(info->history));
 		if (info->alias)
 			free_list(&(info->alias));
-		ffree(info->environ);
+		bfree(info->environ);
 			info->environ = NULL;
 		bfree((void **)info->cmd_buf);
 		if (info->readfd > 2)
