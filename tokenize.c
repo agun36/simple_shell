@@ -10,66 +10,42 @@
 */
 char **strtow(char *input_str, char *del_s)
 {
-	int i, j, word_length, num_words = 0;
+	int i, j, len, num_words = 0;
 	char **words;
 
 	if (input_str == NULL || input_str[0] == 0)
-	{
-		printf("Empty string\n");
 		return (NULL);
-	}
 	if (!del_s)
-	{
-		printf("No delimiter string provided.\n");
 		del_s = " ";
-	}
 	for (i = 0; input_str[i] != '\0'; i++)
 	{
 		if (!is_del(input_str[i], del_s) &&
-			(is_del(input_str[i + 1], del_str) || !input_str[i + 1]))
-		{
+			(is_del(input_str[i + 1], del_s) || !input_str[i + 1]))
 			num_words++;
-		}
 	}
 	if (num_words == 0)
-	{
-		printf("No words in input string.\n");
 		return (NULL);
-	}
 	words = malloc((1 + num_words) * sizeof(char *));
 	if (!words)
-	{
-		printf("Failed to allocate memory for words array.\n");
-		return (NULL);
-	}
+	return (NULL);
 	for (i = 0, j = 0; j < num_words; j++)
 	{
 		while (is_del(input_str[i], del_s))
-		{
 			i++;
-		}
-		word_length = 0;
-		while (!is_del(input_str[i + word_length], del_s) && input_str[i +
-word_length])
-		{
-			word_length++;
-		}
-		words[j] = malloc((word_length + 1) * sizeof(char));
+		len = 0;
+		while (!is_del(input_str[i + len], del_s) && input_str[i + len])
+			len++;
+		words[j] = malloc((len + 1) * sizeof(char));
 		if (!words[j])
 		{
-			for (word_length = 0; word_length < j; word_length++)
-			{
-				free(words[word_length]);
-			}
+			for (len = 0; len < j; len++)
+				free(words[len]);
 			free(words);
-			printf("No allocate memory for words array.\n");
 			return (NULL);
 		}
-		for (word_length = 0; word_length < k; word_length++)
-		{
-			words[j][word_length] = input_str[i++];
-		}
-		words[j][word_length] = 0;
+		for (len = 0; len < k; len++)
+			words[j][len] = input_str[i++];
+		words[j][len] = 0;
 	}
 	words[j] = NULL;
 	return (words);
@@ -89,57 +65,38 @@ char **strtow2(char *input_str, char del)
 	char **wd;
 
 	if (input_str == NULL || input_str[0] == 0)
-	{
-		printf("Empty string\n");
 		return (NULL);
-	}
+
 	for (i = 0; input_str[i] != '\0'; i++)
 	{
 		if ((input_str[i] != del && input_str[i + 1] == del) ||
 				(input_str[i] != del && !input_str[i + 1]) || input_str[i + 1] ==
 				del)
-		{
 			num_wd++;
-		}
 	}
 	if (num_wd == 0)
-	{
-		printf("No words found in input string.\n");
 		return (NULL);
-	}
 	words = malloc(1 + num_wd) * sizeof(char *));
 	if (!wd)
-	{
-		printf("Failed\n");
 		return (NULL);
-	}
 	for (i = 0, j = 0; j < num_wd; j++)
 	{
 		while (input_str[i] == del && input_str[i] != del)
-		{
 			i++;
-		}
 		length = 0;
 		while (input_str[i + length] != del &&
 			input_str[i + length] && input_str[i + length] != del)
-		{
 			length++;
-		}
 		wd[j] = malloc((length + 1) * sizeof(char));
 		if (!wd[j])
 		{
 			for (length = 0; length < j; length++)
-			{
 				free(wd[length]);
-			}
 			free(wd);
-			printf("Failed\n");
 			return (NULL);
 		}
 		for (length = 0; length < k; length++)
-		{
 			wd[j][length] = input_str[i++];
-		}
 		wd[j][length] = 0;
 	}
 	wd[j] = NULL;
