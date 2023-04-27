@@ -164,7 +164,7 @@ void initialize_info(info_t *info);
 int _setenv(info_t *info, char *variable, char *value);
 int unset_env(info_t *info, char *env_var);
 char **get_environment(info_t *info);
-void handle_sigint(int signal_number);
+void sigintHandler(__attribute__((unused))int sig_num)
 int _getline(info_t *info, char **buffer_ptr, size_t *buffer_length);
 ssize_t read_buffer(info_t *info, char *buffer, size_t *buffer_size);
 ssize_t get_input(info_t *info);
