@@ -191,7 +191,7 @@ int print_alias(list_t *node);
 int set_alias(info_t *info, char *alias_str);
 int unset_alias(info_t *info, char *alias_str);
 int print_history(info_t *info);
-void chain_stat(info_t *info, char *bug, size_t *cur_pos, size_t ist_pos, size_t buf_len);
+void chain_stat(info_t *info, char *bug, size_t *cur, size_t pos, size_t len);
 int print_help(info_t *info);
 int change_dir(info_t *info);
 int exit_shell(info_t *info);
