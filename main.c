@@ -24,17 +24,12 @@ int main(int arg_count, char **arg_vector)
 		{
 			if (errno == EACCES)
 			{
-				fprintf(stderr, "Error: Permission denied to open %s\n",
-				arg_vector[1]);
 				exit(98);
 			}
 			if (errno == ENOENT)
 			{
-				fprintf(stderr, "%s: 0: Can't open %s\n", arg_vector[0],
-				arg_vector[1]);
 				exit(98);
 			}
-			fprintf(stderr, "Error: Failed to open %s\n", arg_vector[1]);
 			return (EXIT_FAILURE);
 		}
 		info->readfd = file_descriptor;

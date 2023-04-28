@@ -12,7 +12,7 @@ int _strlen(char *str)
 
 	if (!str)
 	{
-		printf("Error: string is NULL\n");
+		perror("string is NULL\n");
 		return (0);
 	}
 	while (*str++)
