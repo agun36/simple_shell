@@ -16,14 +16,12 @@ list_t *add_node(list_t **head, const char *str, int num)
 	list_t *new_head;
 
 	if (!head)
-	{
 		return (NULL);
-	}
+
 	new_head = malloc(sizeof(list_t));
 	if (!new_head)
-	{
 		return (NULL);
-	}
+
 	memset((void *)new_head, 0, sizeof(list_t));
 	new_head->num = num;
 	if (str)
@@ -56,16 +54,13 @@ list_t *add_node_end(list_t **head, const char *str, int num)
 	list_t *new_node, *node;
 
 	if (!head)
-	{
 		return (NULL);
-	}
+	
 	node = *head;
 	new_node = malloc(sizeof(list_t));
 
 	if (!new_node)
-	{
 		return (NULL);
-	}
 	memset((void *)new_node, 0, sizeof(list_t));
 	new_node->num = num;
 
@@ -86,9 +81,7 @@ list_t *add_node_end(list_t **head, const char *str, int num)
 		node->next = new_node;
 	}
 	else
-	{
 		*head = new_node;
-	}
 	return (new_node);
 }
 
@@ -128,9 +121,7 @@ int delete_node_at_index(list_t **head, unsigned int index)
 	unsigned int i = 0;
 
 	if (!head || !*head)
-	{
 		return (0);
-	}
 
 	if (!index)
 	{

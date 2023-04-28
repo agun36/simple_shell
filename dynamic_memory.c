@@ -15,7 +15,5 @@ int bfree(void **ptr)
 		return (1);
 	}
 	else
-	{
 		return (0);
-	}
 }

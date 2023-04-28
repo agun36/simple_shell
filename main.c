@@ -23,13 +23,11 @@ int main(int arg_count, char **arg_vector)
 		if (file_descriptor == -1)
 		{
 			if (errno == EACCES)
-			{
 				exit(98);
-			}
+
 			if (errno == ENOENT)
-			{
 				exit(98);
-			}
+
 			return (EXIT_FAILURE);
 		}
 		info->readfd = file_descriptor;

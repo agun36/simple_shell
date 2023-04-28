@@ -17,9 +17,7 @@ int is_cm(info_t *info, char *file_path)
 		return (0);
 	}
 	if (st.st_mode & S_IFREG)
-	{
 		return (1);
-	}
 	return (0);
 }
 /**
@@ -38,9 +36,7 @@ char *duplicate_chars(char *path_str, int start_index, int stop_index)
 	for (k = 0, i = start_index; i < stop_index; i++)
 	{
 		if (path_str[i] != ':')
-		{
 			buffer[k++] = path_str[i];
-		}
 	}
 	buffer[k] = 0;
 	return (buffer);
@@ -66,9 +62,8 @@ char *find_path(info_t *info, char *path_str, char *cmd)
 	if ((_strlen(cmd) > 2) && starts_with(cmd, "./"))
 	{
 		if (is_cm(info, cmd))
-		{
 			return (cmd);
-		}
+
 	}
 	while (1)
 	{
@@ -76,9 +71,8 @@ char *find_path(info_t *info, char *path_str, char *cmd)
 		{
 			path = duplicate_chars(path_str, current_position, i);
 			if (!*path)
-			{
 				_strcat(path, cmd);
-			}
+
 			else
 			{
 				_strcat(path, "/");
