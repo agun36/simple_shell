@@ -171,31 +171,31 @@ void cd_to_home(data_shell *datash)
  */
 int cd_shell(data_shell *datash)
 {
-	char *direct;
+	char *dir;
 	int is_home, is_home2, is_dash;
 
-	direct = datash->args[1];
+	dir = datash->args[1];
 
-	if (direct != NULL)
+	if (dir != NULL)
 	{
-		is_home = _strcmp("$HOME", direct);
-		is_home2 = _strcmp("~", direct);
-		is_dash = _strcmp("--", direct);
+		is_home = _strcmp("$HOME", dir);
+		is_home2 = _strcmp("~", dir);
+		is_dash = _strcmp("--", dir);
 	}
 
-	if (direct == NULL || !is_home || !is_home2 || !is_dash)
+	if (dir == NULL || !is_home || !is_home2 || !is_dash)
 	{
 		cd_to_home(datash);
 		return (1);
 	}
 
-	if (_strcmp("-", direct) == 0)
+	if (_strcmp("-", dir) == 0)
 	{
 		cd_previous(datash);
 		return (1);
 	}
 
-	if (_strcmp(".", direct) == 0 || _strcmp("..", direct) == 0)
+	if (_strcmp(".", dir) == 0 || _strcmp("..", dir) == 0)
 	{
 		cd_dot(datash);
 		return (1);
