@@ -116,7 +116,7 @@ void cd_previous(data_shell *datash)
 
 	pd_pwd = _getenv("PWD", datash->_environ);
 
-	write(STDOUT_FILENO, pd_pwd, _strlen(cp_pwd));
+	write(STDOUT_FILENO, pd_pwd, _strlen(pd_pwd));
 	write(STDOUT_FILENO, "\n", 1);
 
 	free(cp_pwd);
