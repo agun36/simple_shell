@@ -173,7 +173,7 @@ char *rep_var(char *input, data_shell *datash)
 	new_input = malloc(sizeof(char) * (len2 + 1));
 	new_input[len2] = '\0';
 
-	new_input = replaced_input(&head, input, new_input, nlen);
+	new_input = replaced_input(&head, input, new_input, len2);
 
 	free(input);
 	free(status);
