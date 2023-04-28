@@ -189,7 +189,7 @@ int cd_shell(data_shell *datash)
 		return (1);
 	}
 
-	if (_strcmp("-",direct) == 0)
+	if (_strcmp("-", direct) == 0)
 	{
 		cd_previous(datash);
 		return (1);
