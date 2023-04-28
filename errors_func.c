@@ -9,7 +9,7 @@
 void _eputs(char *str)
 {
 	int i = 0;
-	
+
 	while (str[i] != '\0')
 	{
 		_eputchar(str[i]);
@@ -72,10 +72,8 @@ int _putfd(char c, int fd)
 int _putsfd(char *str, int fd)
 {
 	int char_count = 0;
-	
+
 	while (*str)
-	{
 		char_count += _putfd(*str++, fd);
-	}
 	return (char_count);
 }

@@ -69,7 +69,6 @@ int _setenv(info_t *info, char *variable, char *value)
 
 	if (!variable || !value)
 		return (1);
-	
 	buffer = malloc(_strlen(variable) + _strlen(value) + 2);
 	if (!buffer)
 		return (1);
