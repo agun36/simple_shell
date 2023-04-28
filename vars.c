@@ -72,7 +72,7 @@ size_t len)
 			j = len;
 		}
 	}
-	*cur_ = j;
+	*cur = j;
 }
 /**
 * replace_alias - replaces an aliases in the tokenized string
