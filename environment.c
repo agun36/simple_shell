@@ -62,7 +62,7 @@ int set_env_var(info_t *info)
 int unset_env_var(info_t *info)
 {
 	int i;
-	
+
 	if (info->argc == 1)
 	{
 		_eputs("Too few arguements.\n");
@@ -84,7 +84,7 @@ int populate_env_list(info_t *info)
 {
 	list_t *node = NULL;
 	size_t i;
-	
+
 	for (i = 0; environ[i]; i++)
 		add_node_end(&node, environ[i], 0);
 	info->env = node;
