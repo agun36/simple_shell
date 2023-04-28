@@ -53,7 +53,7 @@ void shell_loop(data_shell *datash)
 		enterXor = read_line(&i_eof);
 		if (i_eof != -1)
 		{
-			enterXor = without_comment(enter);
+			enterXor = without_comment(enterXor);
 			if (enterXor == NULL)
 				continue;
 
@@ -111,7 +111,7 @@ char *copy_info(char *name, char *value)
 
 	length_name = _strlen(name);
 	length_value = _strlen(value);
-	length = len_name + length_value + 2;
+	length = length_name + length_value + 2;
 	rec = malloc(sizeof(char) * (length));
 	_strcpy(rec, name);
 	_strcat(rec, "=");

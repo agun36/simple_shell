@@ -197,7 +197,7 @@ char **split_line(char *input)
 		if (i == size_len)
 		{
 			size_len += TOK_BUFSIZE;
-			tokens_pin = _realloc2(tokens_pin, i, sizeof(char *) * size);
+			tokens_pin = _realloc2(tokens_pin, i, sizeof(char *) * size_len);
 			if (tokens_pin == NULL)
 			{
 				write(STDERR_FILENO, ": allocation error\n", 18);

@@ -97,7 +97,7 @@ char *_strtok(char str[], const char *delim)
 			if (*tokenPin == delim[i])
 			{
 				*tokenPin = '\0';
-				if (tokenPin == start)
+				if (tokenPin == first_start)
 					first_start++;
 				break;
 			}

@@ -78,7 +78,7 @@ char **_realloc2(char **ptr, unsigned int old_size, unsigned int new_size)
 	if (new_size == old_size)
 		return (ptr);
 
-	recptr = malloc(sizeof(char *) * new_size);
+	r_ptr = malloc(sizeof(char *) * new_size);
 	if (r_ptr == NULL)
 		return (NULL);
 
