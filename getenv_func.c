@@ -34,10 +34,7 @@ int unset_env(info_t *info, char *env_var)
 	char *env_var_value;
 
 	if (!node || !env_var)
-	{
-		fprintf(stderr, "Error: invalid arguments passed to unset_env\n");
 		return (0);
-	}
 
 	while (node)
 	{
@@ -71,17 +68,11 @@ int _setenv(info_t *info, char *variable, char *value)
 	char *p;
 
 	if (!variable || !value)
-	{
-		printf("Error: variable or value is NULL\n");
 		return (1);
-	}
-
+	
 	buffer = malloc(_strlen(variable) + _strlen(value) + 2);
 	if (!buffer)
-	{
-		printf("Error: failed to allocate memory for buffer\n");
 		return (1);
-	}
 	_strcpy(buffer, variable);
 	_strcat(buffer, "=");
 	_strcat(buffer, value);
