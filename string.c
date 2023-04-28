@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
-* get_string_length - returns the length of a string
+* _strlen - returns the length of a string
 *
 * @str: the string whose length to check
 *
