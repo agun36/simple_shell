@@ -11,14 +11,10 @@ int _strlen(char *str)
 	int length = 0;
 
 	if (!str)
-	{
-		perror("string is NULL\n");
 		return (0);
-	}
+
 	while (*str++)
-	{
 		length++;
-	}
 	return (length);
 }
 /**
