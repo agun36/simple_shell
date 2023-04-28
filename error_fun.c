@@ -46,7 +46,7 @@ char *concat_cd(data_shell *datash, char *msg, char *error, char *ver_str)
 char *er_cd(data_shell *datash)
 {
 	int length, len_id;
-	char *err, *virStr, *msges;
+	char *errNum, *virStr, *msges;
 
 	virStr = _itoa(datash->counter);
 	if (datash->args[1][0] == '-')
@@ -127,7 +127,7 @@ char *er_exit(data_shell *datash)
 	errNum = malloc(sizeof(char) * (length + 1));
 	if (errNum == 0)
 	{
-		free(verStr);
+		free(virStr);
 		return (NULL);
 	}
 	_strcpy(errNum, datash->av[0]);

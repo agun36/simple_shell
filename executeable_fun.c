@@ -36,9 +36,9 @@ char *_which(char *cmd, char **_environ)
 	struct stat st;
 
 	path_t = _getenv("PATH", _environ);
-	if (path)
+	if (path_t)
 	{
-		ptrPath = _strdup(path);
+		ptrPath = _strdup(path_t);
 		len_cmd = _strlen(cmd);
 		tokenPath = _strtok(ptrPath, ":");
 		i = 0;
@@ -200,6 +200,6 @@ int cmd_exec(data_shell *datash)
 		} while (!WIFEXITED(s) && !WIFSIGNALED(s));
 	}
 
-	datash->s = s / 256;
+	datash->status = s / 256;
 	return (1);
 }

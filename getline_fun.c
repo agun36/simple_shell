@@ -62,7 +62,7 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 		i = read(STDIN_FILENO, &th, 1);
 		if (i == -1 || (i == 0 && inpt == 0))
 		{
-			free(buff);
+			free(buf);
 			return (-1);
 		}
 		if (i == 0 && inpt != 0)
@@ -73,7 +73,7 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 		if (inpt >= BUFSIZE)
 			buf = _realloc(buf, inpt, inpt + 1);
 		buf[inpt] = chara;
-		input++;
+		inpt++;
 	}
 	buff[input] = '\0';
 	bring_line(lineptr, n, buf, inpt);
