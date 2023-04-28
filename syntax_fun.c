@@ -103,7 +103,7 @@ int first_char(char *input, int *i)
  */
 void print_syntax_error(data_shell *datash, char *input, int i, int bool)
 {
-	char *msg, *msg2, *msg3, *error, *prompt;
+	char *msg, *msg2, *msg3, *error, *counter;
 	int length;
 
 	if (input[i] == ';')
@@ -122,19 +122,19 @@ void print_syntax_error(data_shell *datash, char *input, int i, int bool)
 
 	msg2 = ": Syntax error: \"";
 	msg3 = "\" unexpected\n";
-	prompt = _itoa(datash->prompt);
-	length = _strlen(datash->av[0]) + _strlen(prompt);
+	counter = _itoa(datash->counter);
+	length = _strlen(datash->av[0]) + _strlen(counter);
 	length += _strlen(msg) + _strlen(msg2) + _strlen(msg3) + 2;
 
 	error = malloc(sizeof(char) * (length + 1));
 	if (error == 0)
 	{
-		free(prompt);
+		free(counter);
 		return;
 	}
 	_strcpy(error, datash->av[0]);
 	_strcat(error, ": ");
-	_strcat(error, prompt);
+	_strcat(error, counter);
 	_strcat(error, msg2);
 	_strcat(error, msg);
 	_strcat(error, msg3);
@@ -142,7 +142,7 @@ void print_syntax_error(data_shell *datash, char *input, int i, int bool)
 
 	write(STDERR_FILENO, error, length);
 	free(error);
-	free(prompt);
+	free(counter);
 }
 
 /**
