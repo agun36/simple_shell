@@ -43,11 +43,11 @@ int is_chain_del(info_t *info, char *buf, size_t *cur_pos)
 *
 * @buf: the char buffer
 *
-* @cur_pos: address of current position in buf
+* @cur: address of current position in buf
 *
-* @ist_pos: starting position in buf
+* @pos: starting position in buf
 *
-* @buf_len: length of buf
+* @len: length of buf
 *
 * Return: Void
 */
