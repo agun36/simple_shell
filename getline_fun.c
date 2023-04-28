@@ -59,7 +59,7 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 		return (-1);
 	while (chara != '\n')
 	{
-		i = read(STDIN_FILENO, &th, 1);
+		i = read(STDIN_FILENO, &chara, 1);
 		if (i == -1 || (i == 0 && inpt == 0))
 		{
 			free(buf);
