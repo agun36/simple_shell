@@ -25,7 +25,7 @@ void check_envir(r_var **h, char *in, data_shell *data)
 				return;
 			}
 
-			if (in[j] == _envr[row][chr])
+			if (in[j] == _envr[r][chr])
 				j++;
 			else
 				break;
