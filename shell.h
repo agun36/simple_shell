@@ -88,7 +88,7 @@ typedef struct passinfo
 	int env_changed;
 	int status;
 
-	char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
+	char **cmd_buf; 
 	int cmd_buf_type; /* CMD_type ||, &&, ; */
 	int readfd;
 	int histcount;
@@ -191,7 +191,7 @@ int print_alias(list_t *node);
 int set_alias(info_t *info, char *alias_str);
 int unset_alias(info_t *info, char *alias_str);
 int print_history(info_t *info);
-void chain_stat(info_t *info, char *bug, size_t *cur, size_t pos, size_t len);
+void chain_stat(info_t *info, char *buf, size_t *cur, size_t pos, size_t len);
 int print_help(info_t *info);
 int change_dir(info_t *info);
 int exit_shell(info_t *info);
