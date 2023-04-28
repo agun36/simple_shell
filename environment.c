@@ -79,7 +79,7 @@ void set_env(char *name, char *value, data_shell *datash)
 			free(varEnv);
 			return;
 		}
-		free(var_env);
+		free(varEnv);
 	}
 
 	datash->_environ = _realloc2(datash->_environ, i, sizeof(char *) * (i + 2));
@@ -131,7 +131,7 @@ int _unsetenv(data_shell *datash)
 	{
 		varEnv = _strdup(datash->_environ[i]);
 		nameEnv = _strtok(varEnv, "=");
-		if (_strcmp(name_env, datash->args[1]) == 0)
+		if (_strcmp(nameEnv, datash->args[1]) == 0)
 		{
 			k = i;
 		}
