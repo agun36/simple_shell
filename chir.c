@@ -125,7 +125,7 @@ void cd_previous(data_shell *datash)
 
 	datash->status = 0;
 
-	chdir(cp_pwd);
+	chdir(pd_pwd);
 }
 
 /**
