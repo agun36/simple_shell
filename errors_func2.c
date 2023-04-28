@@ -19,16 +19,6 @@ int _erratoi(char *s)
 		{
 			result *= 10;
 			result += (s[i] - '0');
-			if (result > INT_MAX)
-			{
-				fprintf(stderr, "Error: Integer overflow\n");
-				return (-1);
-			}
-		}
-		else
-		{
-			fprintf(stderr, "Error: Invalid character in string\n");
-			return (-1);
 		}
 	}
 	return (result);
