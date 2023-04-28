@@ -9,12 +9,7 @@
 void _eputs(char *str)
 {
 	int i = 0;
-
-	if (!str)
-	{
-		fprintf(stderr, "Error: _eputs() called with NULL string\n");
-		return;
-	}
+	
 	while (str[i] != '\0')
 	{
 		_eputchar(str[i]);
@@ -77,12 +72,7 @@ int _putfd(char c, int fd)
 int _putsfd(char *str, int fd)
 {
 	int char_count = 0;
-
-	if (!str)
-	{
-		fprintf(stderr, "Error: _putsfd() called with NULL string\n");
-		return (0);
-	}
+	
 	while (*str)
 	{
 		char_count += _putfd(*str++, fd);
