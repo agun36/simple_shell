@@ -19,7 +19,7 @@ int exit_shell(data_shell *datash)
 		digitNum = _isdigit(datash->args[1]);
 		length = _strlen(datash->args[1]);
 		digitNum = unstatus > (unsigned int)INT_MAX;
-		if (!digitNum || length > 10 || bigNum)
+		if (!digitNum || length > 10 || digitNum)
 		{
 			_error(datash, 2);
 			datash->status = 2;
@@ -47,5 +47,5 @@ int exec_line(data_shell *datash)
 	if (builtin != NULL)
 		return (builtin(datash));
 
-	return (cmd_exec(data_t));
+	return (cmd_exec(datash));
 }
