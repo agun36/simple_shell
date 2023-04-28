@@ -51,28 +51,28 @@ int is_chain_del(info_t *info, char *buf, size_t *cur_pos)
 *
 * Return: Void
 */
-void chain_stat(info_t *info, char *buf, size_t *cur_pos, size_t ist_pos,
-size_t buf_len)
+void chain_stat(info_t *info, char *buf, size_t *cur, size_t pos,
+size_t len)
 {
-	size_t j = *cur_pos;
+	size_t j = *cur;
 
 	if (info->cmd_buf_type == CMD_AND)
 	{
 		if (info->status)
 		{
-			buf[ist_pos] = 0;
-			j = buf_len;
+			buf[pos] = 0;
+			j = len;
 		}
 	}
 	if (info->cmd_buf_type == CMD_OR)
 	{
 		if (!info->status)
 		{
-			buf[ist_pos] = 0;
-			j = buf_len;
+			buf[pos] = 0;
+			j = len;
 		}
 	}
-	*cur_pos = j;
+	*cur_ = j;
 }
 /**
 * replace_alias - replaces an aliases in the tokenized string
